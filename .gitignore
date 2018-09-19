@@ -1,0 +1,11 @@
+node_modules
+bower_components
+coverage
+.metadata
+.idea
+.c9
+.expo
+platforms
+Thumbs.db
+*.zip
+npm-debug.log
