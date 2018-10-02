@@ -4,8 +4,8 @@
   "description": "MIT license",
   "main": "\t\t\t",
   "scripts": {
-  "start": "nodemon ./bin/www",
-  "start-service": "node ./bin/www",
+    "start": "nodemon ./bin/www",
+    "start-service": "nodemon ./bin/www",
     "test": "hello"
   },
   "repository": {
