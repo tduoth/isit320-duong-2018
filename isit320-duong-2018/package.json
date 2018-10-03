@@ -1,0 +1,24 @@
+{
+  "name": "week02-react-repo",
+  "version": "1.0.0",
+  "description": "MIT license",
+  "main": "\t\t\t",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "start-service": "nodemon ./bin/www",
+    "test": "hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tduoth/isit320-duong-2018.git"
+  },
+  "keywords": [
+    "tduoth"
+  ],
+  "author": "thanhduong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tduoth/isit320-duong-2018/issues"
+  },
+  "homepage": "https://github.com/tduoth/isit320-duong-2018#readme"
+}
