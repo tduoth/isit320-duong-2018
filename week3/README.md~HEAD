@@ -1,2 +1,0 @@
-# server
-by Charlie Calvert

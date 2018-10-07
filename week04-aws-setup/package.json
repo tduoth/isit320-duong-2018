@@ -1,0 +1,22 @@
+{
+  "name": "week04-aws-setup",
+  "version": "1.0.0",
+  "description": "aws",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tduoth/isit320-duong-2018.git"
+  },
+  "author": "thanh duong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tduoth/isit320-duong-2018/issues"
+  },
+  "homepage": "https://github.com/tduoth/isit320-duong-2018#readme",
+  "dependencies": {
+    "aws-sdk": "^2.329.0"
+  }
+}
