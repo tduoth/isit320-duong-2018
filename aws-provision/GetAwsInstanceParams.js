@@ -48,8 +48,8 @@ module.exports.awsEducate = () => {
 module.exports.awsCharlie = () => {
     showAwsCharlieConfiguration();
     awsParams.ImageId = 'ami-0bbe6b35405ecebdb';
-    awsParams.KeyName = <KEY_NAME>;
-    awsParams.SecurityGroupIds = [<SECURITY_GROUP_ID>];
+    awsParams.KeyName = 'ec2-320-inclass';
+    awsParams.SecurityGroupIds = ['sg-0343e3be157db8175'];
     return getInstanceParams(awsParams);
 };
 
