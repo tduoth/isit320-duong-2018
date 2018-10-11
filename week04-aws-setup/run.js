@@ -7,7 +7,7 @@ AWS.config.credentials.get(function () {
     console.log("Secret Access Key:", AWS.config.credentials.secretAccessKey);
 });
 
-//AWS.config.loadFromPath(process.env.HOME + '/.aws/config-aws.json');
+//AWS.config.loadFromPath(process.env.HOME + '/.aws/config.json');
 AWS.config.update({region:'us-west-2'});
 
 console.log(AWS.config);
