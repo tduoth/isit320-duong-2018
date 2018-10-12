@@ -23,5 +23,9 @@
   "homepage": "https://github.com/tduoth/isit320-duong-2018#readme",
   "dependencies": {
     "aws-sdk": "^2.330.0"
+  },
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0"
   }
 }
