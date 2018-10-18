@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router(); 
 const getAwsInstanceParams = require('./aws/GetAwsInstanceParams');
 const createInstance = require('./aws/AwsPromise');
-const associate = require('./aws/AssociateElasticIp')
+const associate = require('./aws/AssociateElasticIp');
+const program = require('commander');
 
 
 /* Set up a route called foo. */

@@ -1,4 +1,5 @@
 var AWS = require('aws-sdk');
+AWS.config.update({region:'us-west-2'});
 
 const awsParams = {};
 
@@ -38,7 +39,7 @@ function showAwsCharlieConfiguration() {
 
 module.exports.awsEducate = () => {
     showAwsEducateCredentials();
-    AWS.config.update({region:'us-east-1'});
+    AWS.config.update({region:'us-west-2'});
     awsParams.ImageId ='ami-0bbe6b35405ecebdb';
     awsParams.KeyName ='ec2week4';
     awsParams.SecurityGroupIds = ['sg-021824aab5cf15250'];
