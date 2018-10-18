@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/tduoth/isit320-duong-2018.git"
+    "url": "git+ssh://github.com/tduoth/isit320-duong-2018.git"
   },
   "bugs": {
     "url": "https://github.com/tduoth/isit320-duong-2018/issues"

@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router(); 
-const getAwsInstanceParams = require('GetAwsInstanceParams');
-const createInstance =require('AwsPromise');
-const associate = require('associateElasticIp')
+const getAwsInstanceParams = require('./aws/GetAwsInstanceParams');
+const createInstance = require('./aws/AwsPromise');
+const associate = require('./aws/AssociateElasticIp')
 
 
 /* Set up a route called foo. */
@@ -13,8 +13,8 @@ router.get('/foo', function(request, response) {
 });
 
 router.get('/create-educate', function(request, response){
-    const awsInstanceParams = getAwsInstanceParams.awsEducate();
-    createInstance(awsInstanceParams);
+    const getAwsInstanceParams = getAwsInstanceParams.awsEducate();
+    createInstance(getAwsInstanceParams);
     response.send({result: 'sucess'});
    
 });
