@@ -1,21 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'whatwg-fetch';
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            file: 'File name will be placed here.',
-            status: 'waiting for server'
-        };
-    }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
 
-    queryServer = () => {
-        const that = this;
-        fetch('/api/foo')
-            .then(function(response) {
+	copyScript = () => {
+	fetch('/script-pusher/copy-script')
+	 .then(function(response) {
                 return response.json();
             })
             .then(function(json) {
@@ -24,25 +20,25 @@ class App extends Component {
             })
             .catch(function(ex) {
                 console.log('parsing failed, URL bad, network down, or similar', ex);
-            });
-    };
+            })
+};
 
-    render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to React</h2>
-                </div>
+  
+          <div className="App">
+    <header>
+        <h1>Copy File</h1>
+    </header>
+    <main>
+ <button onClick={this.copyScript}>Copy</button>
+    </main>
+</div>
 
-                <p className="App-intro">
-                    state: {this.state.status} file: {this.state.file}
-                </p>
-                <button onClick={this.queryServer}>Bar</button>
-            </div>
-        );
-    }
+        </header>
+      </div>
+
+    );
+
+  }
 }
 
 export default App;
-
