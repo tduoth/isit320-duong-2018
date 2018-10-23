@@ -13,6 +13,20 @@ constructor() {
         status: 'waiting'
     };
 }
+bar = () => {
+    const that = this;
+    fetch('/api/foo')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            console.log('parsed json', json);
+            that.setState(foo => (json));
+        })
+        .catch(function(ex) {
+            console.log('parsing failed', ex);
+        });
+};
   render() {
     return (
       <div className="App">
