@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/tduoth/isit320-duong-2018#readme",
   "dependencies": {
-    "aws-sdk": "^2.330.0"
+    "aws-sdk": "^2.330.0",
+    "concurrently": "^4.0.1"
   },
   "devDependencies": {
     "enzyme": "^3.7.0",
