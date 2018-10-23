@@ -1,7 +1,24 @@
-  import React from 'react';
+var ReactBasics = function (_React$Component) {
+   _inherits(ReactBasics, _React$Component);
 
-  export default class ReactBasics extends React.Component {
-     render() {
-         return <h1>An H1 element in a React Component</h1>;
-     }
-  }
+   function ReactBasics() {
+      _classCallCheck(this, ReactBasics);
+
+      return _possibleConstructorReturn(this,
+        (ReactBasics.__proto__ ||
+           Object.getPrototypeOf(ReactBasics)).apply(this, arguments));
+   }
+
+   _createClass(ReactBasics, [{
+      key: 'render',
+      value: function render() {
+         return _react2.default.createElement(
+            'h1',
+            null,
+            'An H1 element in a React Component'
+         );
+      }
+   }]);
+
+   return ReactBasics;
+}(_react2.default.Component);
