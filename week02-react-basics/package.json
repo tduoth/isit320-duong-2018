@@ -1,11 +1,25 @@
 {
-  "name": "react-basic",
+  "name": "week02-react-basics",
   "version": "1.0.0",
-  "description": "react basic examples",
+  "description": "react basics examples",
   "main": "main.js",
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "webpack-dev-server": "^3.1.9"
+  },
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --port=30026 --mode=development",
-    "build": "node_modules/.bin/webpack",
+      "start": "node_modules/.bin/webpack-dev-server --port=30025 --mode=development",   
+   "build": "node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,21 +34,5 @@
   "bugs": {
     "url": "https://github.com/charliecalvert/JsObjects/issues"
   },
-  "homepage": "https://github.com/charliecalvert/JsObjects#readme",
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "webpack": "^4.22.0",
-    "webpack-cli": "^3.1.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^8.0.4",
-    "webpack-dev-server": "^3.1.9"
-  }
+  "homepage": "https://github.com/charliecalvert/JsObjects#readme"
 }
