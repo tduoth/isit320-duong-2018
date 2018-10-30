@@ -20,6 +20,12 @@ router.get('/create-educate', function(request, response){
    
 });
 
+router.get('/create-educate', function(request, response){
+    const getAwsInstanceParams = getAwsInstanceParams.awsEducate();
+    createInstance(getAwsInstanceParams);
+    response.send({result: 'sucess'});
+
+});
 
 module.exports = router;
 
