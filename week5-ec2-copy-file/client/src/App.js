@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'whatwg-fetch';
 
 class App extends Component {
+
 
 constructor(props) {
 super(props);
 this.state = 
-{ allData: "unknown"};
+{ allData: 'unknown',
+  result: 'waiting for server'};
 }
 
 copyFile = () => {
   const that= this;
-    fetch('/script-pusher/copy-file')
+    fetch('/script-pusher/copy-script')
         .then(function(response) {
             return response.json();
         })
@@ -32,6 +34,9 @@ copyFile = () => {
      <div className="App">
     <header>
         <h1>Copy File</h1>
+    <p className="App-intro">
+                    Result: {this.state.result}
+                </p>
     </header>
     <main>
 
