@@ -8,24 +8,26 @@ class App extends Component {
 constructor(props) {
 super(props);
 this.state = 
-{ allData: 'unknown',
-  result: 'waiting for server'};
+{ allData: "unknown",
+  };
 }
 
 copyFile = () => {
-  const that= this;
-    fetch('/script-pusher/copy-script')
+
+       const that= this;
+    fetch('/script-pusher/copy-file')
         .then(function(response) {
             return response.json();
         })
         .then(function(json) {
             console.log('parsed json', json.allData);
-	that.setState({allData: json.allData});   
+	that.setState({allData:json.allData});   
         })
         .catch(function(ex) {
             console.log('parsing failed', ex);
         });
 };
+
 	
   render() {
     return (
@@ -35,7 +37,7 @@ copyFile = () => {
     <header>
         <h1>Copy File</h1>
     <p className="App-intro">
-                    Result: {this.state.result}
+                    Result: {this.state.allData}
                 </p>
     </header>
     <main>
