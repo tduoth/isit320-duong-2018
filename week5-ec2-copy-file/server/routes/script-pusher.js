@@ -1,13 +1,24 @@
 var express = require('express');
 var router = express.Router();
-const spawn = require('child_process').spawn;
+const program = require('commander');
 
 /* GET home page. */
 
+router.get('/copy-script', function(request, response) {
+    'use strict';
+    copyFile()
+        .then((result) => {
+            console.log(JSON.stringify(result, null, 4));
+            response.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+            response.send(err);
+        })
 
-
-router.get('/copy-script', function(request, response) { 'use strict';
-    response.send({ result: 'success' });
 });
+
+
+
 
 module.exports = router;
