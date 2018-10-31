@@ -4,6 +4,8 @@ const program = require('commander');
 
 /* GET home page. */
 
+const scriptPusher = require("WHAT GOES HERE?");
+
 router.get('/copy-script', function(request, response) {
     'use strict';
     copyFile()
