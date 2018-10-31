@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
+
       const radioWeb = (
           <div className="container">
           <form onSubmit={this.handleSubmit}>
@@ -41,7 +40,6 @@ class App extends Component {
       </form>
       </div>
   );
-  }
-}
+
 
 export default App;
