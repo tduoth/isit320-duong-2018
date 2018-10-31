@@ -4,5 +4,3 @@
 **/node_modules/**
 **/bower_components/**
 **/coverage/**
-**/public/static/ service-worker.js precache-manifest.*.js**
-**public/static** 
