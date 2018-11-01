@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+render()
+{
 
       const radioWeb = (
           <div className="container">
@@ -41,5 +43,13 @@ class App extends Component {
       </div>
   );
 
+return 
+(
+ <div className="App">
+<label for="elf-radio-uptime">Uptime</label>
+ </div>
+)
+	}
+}
 
 export default App;
