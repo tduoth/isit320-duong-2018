@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 const spawn = require('child_process').spawn;
 
 let allData = "";
@@ -41,8 +42,6 @@ const copyFile = () => {
 };
 
 router.get('/copy-file', (request, response) => {
-    //const result = { result: 'success'};
-    //response.send(result);
 
     copyFile()
         .then((result) => {
