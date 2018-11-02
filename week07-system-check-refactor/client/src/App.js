@@ -2,6 +2,33 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+
+ constructor(props) {
+        super(props);
+        this.state = {
+            allData: 'unknown'
+        };
+    }
+
+handleChange = (event) => {
+    const selectedValue = event.target.value;
+    console.log('HANDLE CHANGE', selectedValue);
+    this.setState({
+        ...this.state,
+        selectedValue: selectedValue
+    });
+
+};
+
+handleSubmit= (event) => {
+    this.setState({allData: ''});
+    console.log('A name was submitted: ' , this.state);
+    //if (this.state.selectedValue === 'cpu') {
+    this.runCpuInfo(this.state.selectedValue);
+    //}
+    event.preventDefault();
+};
+
     copyFile = () => {
         const that = this;
         fetch('/script-pusher/copy-file')
@@ -18,11 +45,44 @@ class App extends Component {
     };
 
     render() {
+
+const radioWeb =  (
+      <div className="container">
+          <form onSubmit={this.handleSubmit} >
+
+              <div className="elf-form-field" >
+                  <input type="radio" name="app-choice" value="CpuInfo" id="elf-radio-cpu" onChange={this.handleChange}/>
+                  <label htmlFor="elf-radio-cpu">CpuInfo</label>
+
+                  <input type="radio" name="app-choice" value="VersionCheck" id="elf-radio-version" onChange={this.handleChange}/>
+                  <label htmlFor="elf-radio-version">Version Info</label>
+              </div>
+
+              <div className="form-group">
+                  <button type="submit" className="btn btn-primary">Run System Script</button>
+              </div>
+          </form>
+      </div>
+  );
+
+
+
+
         return (
             <div className="App">
             <header>
             <h1>Copy File </h1>
         </header>
+<main>
+    <section>
+        {radioWeb}
+    </section>
+    <section>
+        <pre>{this.state.allData}</pre>
+    </section>
+    <button onClick={this.runFoo}>Run Foo</button>
+</main>
+
 
         <main>
         <button onClick={this.copyFile}>Copy File</button>
