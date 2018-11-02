@@ -36,7 +36,7 @@ class App extends Component {
         <h1>Run SSH</h1>
       </header>
         <main>
-            <button onClick={this.callCpuInfo}>Call Cpu Info</button>
+            <button onClick={this.callCpuInfo}>Call CPU Info</button>
             <p>{this.state.allData}</p>
         </main>
 

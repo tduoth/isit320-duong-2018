@@ -37,12 +37,10 @@ const runCpuInfo = (hostAddress, response) => {
         port: 22,
         username: 'ubuntu',
         privateKey: require('fs').readFileSync(
-            process.env.HOME + '/.ssh/ec2key'
+            process.env.HOME + '.ssh/ec2key'
         )
     });
 };
-
-
 
 router.get('/call-cpu-info', (request, response) => {
     console.log("cpu info called");
