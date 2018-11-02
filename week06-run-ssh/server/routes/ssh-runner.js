@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const Client = require('ssh2').Client;
 
-const hostAddress = '52.32.226.69';
+const hostAddress = '52.32.223.69';
 
 let allData = '';
 
