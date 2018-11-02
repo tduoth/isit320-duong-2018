@@ -5,7 +5,7 @@
   "dependencies": {
     "babel-cli": "6.24.0",
     "babel-core": "6.24.0",
-    "express": "4.15.3"
+    "express": "^4.16.4"
   },
   "scripts": {
     "start": "concurrently 'npm run server' 'npm run client'",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
-    "concurrently": "3.4.0",
+    "concurrently": "^3.4.0",
     "eslint": "3.19.0",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-import": "2.3.0",
