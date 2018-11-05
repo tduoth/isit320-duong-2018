@@ -71,7 +71,7 @@ const radioWeb =  (
         return (
             <div className="App">
             <header>
-            <h1>Copy File </h1>
+            <h1>SYSTEM CHECK </h1>
         </header>
 <main>
     <section>
