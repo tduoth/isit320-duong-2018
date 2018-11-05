@@ -3,53 +3,38 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-render()
-{
+    copyFile = () => {
+        const that = this;
+        fetch('/script-pusher/copy-file')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
 
-      const radioWeb = (
-          <div className="container">
-          <form onSubmit={this.handleSubmit}>
-  <fieldset>
-      <div className="elf-form-field">
+            })
+            .catch(function(ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            });
+    };
 
-          <legend>Services</legend>
-          <input
-      type="radio"
-      name="app-choice"
-      data-endpoint="0"
-      value="CpuInfo"
-      id="elf-radio-cpu"
-      onChange={this.handleChange}
-      />
-      <label htmlFor="elf-radio-cpu">CpuInfo</label>
+    render() {
+        return (
+            <div className="App">
+            <header>
+            <h1>Copy File </h1>
+        </header>
 
-          <input
-      type="radio"
-      name="app-choice"
-      data-endpoint="0"
-      value="VersionCheck"
-      id="elf-radio-version"
-      onChange={this.handleChange}
-      />
-      <label htmlFor="elf-radio-version">Version Info</label>
+        <main>
+        <button onClick={this.copyFile}>Copy File</button>
 
-      </div>
-
-      <div className="form-group">
-          <button type="submit" className="btn btn-primary">Run System Script</button>
-      </div>
-      </fieldset>
-      </form>
-      </div>
-  );
-
-return 
-(
- <div className="App">
-<label for="elf-radio-uptime">Uptime</label>
- </div>
-)
-	}
+        </main>
+        <footer>
+        <p>&copy; by Thanh Duong </p>
+        </footer>
+        </div>
+    );
+    }
 }
 
 export default App;
