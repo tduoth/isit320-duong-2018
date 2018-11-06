@@ -109,10 +109,11 @@ handleSubmit = (event) => {
     render() {
         const radioWeb = (
             <div className="container">
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={this.handleSubmit}>
                 <fieldset>
                 
                     <div className="elf-form-field" >
+                    <legend>Services</legend>
                         <input  
                         type="radio" 
                         name="app-choice" 
