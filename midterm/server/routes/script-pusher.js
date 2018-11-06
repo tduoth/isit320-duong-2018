@@ -42,6 +42,8 @@ const copyFile = () => {
     });
 };
 
+
+
 const versionChk = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run Version check', process.env.SETUP_LINUXBOX);
@@ -106,6 +108,12 @@ router.get('/version-check', function(request, response) {
 router.get('/copy-script', function(request, response) {
     'use strict';
     response.send({ result: 'success' });
+});
+
+router.get('/foo', function(request, response) {
+    var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
+    console.log('Foo called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 module.exports = router;
