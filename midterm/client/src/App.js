@@ -109,7 +109,8 @@ handleSubmit = (event) => {
         const radioWeb = (
             <div className="container">
                 <form onSubmit={this.handleSubmit} >
-
+                <fieldset>
+                
                     <div className="elf-form-field" >
                         <input  
                         type="radio" 
@@ -129,8 +130,9 @@ handleSubmit = (event) => {
                     </div>
 
                    <div className="form-group">
-                       <button type="submit" className="btn btn-primary">Run System Script</button>
+                       <button type="submit" className="btn btn-primary">Run System Script </button>
                    </div>
+                   </fieldset>
                 </form>
             </div>
         );
