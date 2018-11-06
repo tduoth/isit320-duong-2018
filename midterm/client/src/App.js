@@ -28,6 +28,19 @@ class App extends Component {
                 );
             });
     };
+    
+    runFoo = () => {
+        fetch('/foo')
+        .then(function(response){
+            return respone.json();
+        })
+        .then(function (json) {
+            console.log(JSON.stringify(json, null, 4));
+        })
+        .catch(function (ex) {
+            console.log('parsing failed, URL bad, network json')
+        });
+    }
 
     versionChk = () => {
         const that = this;
