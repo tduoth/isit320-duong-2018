@@ -105,7 +105,7 @@ class App extends Component {
                  <img src={logo} className="App-logo" alt="logo"/>
                     <p>CPU INFO</p>
                     <br />
-                    <button onClick={this.handleChange}>Get CPU Info</button>
+                    <button onClick={this.versionChk}>Get CPU Info</button>
                     <pre>{this.state.allData}</pre>
                     <p>CURRENT LINUX INFO</p>
                     <br />
