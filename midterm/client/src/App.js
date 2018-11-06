@@ -10,6 +10,18 @@ class App extends Component {
             currentVersion: 'Version: unknown'
         };
     }
+    
+          runFoo = () => {
+        fetch('/foo')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function (json) {
+            console.log(JSON.stringify(json, null, 4));
+        })
+        .catch(function (ex) {
+            console.log('parsing failed, URL bad, network json')
+        });
 
     copyFile = () => {
         const that = this;
@@ -89,18 +101,7 @@ class App extends Component {
             </div>
         );
         
-           runFoo = () => {
-        fetch('/foo')
-        .then(function(response){
-            return response.json();
-        })
-        .then(function (json) {
-            console.log(JSON.stringify(json, null, 4));
-        })
-        .catch(function (ex) {
-            console.log('parsing failed, URL bad, network json')
-        });
-    }
+        
         return (
             <div className="App">
                 <header className="App-header">
