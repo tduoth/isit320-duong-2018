@@ -10,18 +10,6 @@ class App extends Component {
             currentVersion: 'Version: unknown'
         };
     }
-    
-          runFoo = () => {
-        fetch('/foo')
-        .then(function(response){
-            return response.json();
-        })
-        .then(function (json) {
-            console.log(JSON.stringify(json, null, 4));
-        })
-        .catch(function (ex) {
-            console.log('parsing failed, URL bad, network json')
-        });
 
     copyFile = () => {
         const that = this;
@@ -40,8 +28,6 @@ class App extends Component {
                 );
             });
     };
-    
- 
 
     versionChk = () => {
         const that = this;
@@ -87,7 +73,7 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit} >
 
                     <div className="elf-form-field" >
-                        <input type="radio" name="app-choice" value="CpuInfo" id="elf-radio-cpu" onChange={this.handleSubmit}/>
+                        <input type="radio" name="app-choice" value="CpuInfo" id="elf-radio-cpu" onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
                         <input type="radio" name="app-choice" value="VersionCheck" id="elf-radio-version" onChange={this.handleChange}/>
@@ -100,15 +86,13 @@ class App extends Component {
                 </form>
             </div>
         );
-        
-        
         return (
             <div className="App">
                 <header className="App-header">
                  <img src={logo} className="App-logo" alt="logo"/>
                     <p>CPU INFO</p>
                     <br />
-                    <button onClick={this.versionChk}>Get CPU Info</button>
+                    <button onClick={this.copyFile}>Get CPU Info</button>
                     <pre>{this.state.allData}</pre>
                     <p>CURRENT LINUX INFO</p>
                     <br />
