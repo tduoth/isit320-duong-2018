@@ -101,12 +101,7 @@ class App extends Component {
 
                 </header>
                 <main>
-                    <section>
-                        {radioWeb}
-                    </section>
-                    <section>
-                        <pre>{this.state.allData}</pre>
-                    </section>
+
                     <button onClick={this.runFoo}>Run Foo</button>
                 </main>
 
