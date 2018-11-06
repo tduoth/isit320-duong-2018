@@ -120,7 +120,7 @@ handleSubmit = (event) => {
                         data-endpoint="0"
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
-                        onChange={this.state.allData}/>
+                        onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
                         <input 
@@ -129,7 +129,7 @@ handleSubmit = (event) => {
                         data-endpoint="0"
                         value="VersionCheck" 
                         id="elf-radio-version" 
-                        onChange={this.state.currentVersion}/>
+                        onChange={this.handleChange}/>
                         
                         <label htmlFor="elf-radio-version"> Version Info </label>
                     </div>
