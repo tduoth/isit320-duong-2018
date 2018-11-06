@@ -68,9 +68,6 @@ class App extends Component {
 
 
     render() {
-        
-        const selectedValue = event.target.value;
-        
         const radioWeb = (
             <div className="container">
                 <form onSubmit={this.handleSubmit} >
