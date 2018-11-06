@@ -32,7 +32,7 @@ class App extends Component {
     runFoo = () => {
         fetch('/foo')
         .then(function(response){
-            return respone.json();
+            return response.json();
         })
         .then(function (json) {
             console.log(JSON.stringify(json, null, 4));
