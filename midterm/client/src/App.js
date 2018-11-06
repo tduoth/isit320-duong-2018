@@ -120,7 +120,7 @@ handleSubmit = (event) => {
                         data-endpoint="0"
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
-                        onChange={this.copyFile}/>
+                        onChange={this.state.allData}/>
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
                         <input 
@@ -129,7 +129,7 @@ handleSubmit = (event) => {
                         data-endpoint="0"
                         value="VersionCheck" 
                         id="elf-radio-version" 
-                        onChange={this.versionChk}/>
+                        onChange={this.state.currentVersion}/>
                         
                         <label htmlFor="elf-radio-version"> Version Info </label>
                     </div>
@@ -160,7 +160,14 @@ handleSubmit = (event) => {
                     </section>
                     <button onClick={this.runScript}>Run Foo</button>
                     
-                    
+                    <p>CPU INFO</p>
+                    <br />
+                    <button onClick={this.copyFile}>Get CPU Info</button>
+                    <pre>{this.state.allData}</pre>
+                    <p>CURRENT LINUX INFO</p>
+                    <br />
+                    <button onClick={this.versionChk}>Check Version</button>
+                    <pre>{this.state.currentVersion}</pre>
 </main>
 
             </div>
