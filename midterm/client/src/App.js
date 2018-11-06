@@ -5,6 +5,7 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
         this.state = {
             allData: 'CPU: unknown',
             currentVersion: 'Version: unknown',
@@ -115,6 +116,7 @@ handleSubmit = (event) => {
                         <input  
                         type="radio" 
                         name="app-choice" 
+                        data-endpoint="0"
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
                         onChange={this.handleChange}/>
@@ -123,10 +125,12 @@ handleSubmit = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
+                        data-endpoint="0"
                         value="VersionCheck" 
                         id="elf-radio-version" 
                         onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-version">Version Info</label>
+                        
+                        <label htmlFor="elf-radio-version"> Version Info </label>
                     </div>
 
                    <div className="form-group">
@@ -142,14 +146,7 @@ handleSubmit = (event) => {
                   <img src={logo} className="App-logo" alt="logo"/>
                   
                   
-                    <p>CPU INFO</p>
-                    <br />
-                    <button onClick={this.copyFile}>Get CPU Info</button>
-                    <pre>{this.state.allData}</pre>
-                    <p>CURRENT LINUX INFO</p>
-                    <br />
-                    <button onClick={this.versionChk}>Check Version</button>
-                    <pre>{this.state.currentVersion}</pre>
+                
                     
                     
                     <label for="elf-radio-uptime">Uptime</label>
