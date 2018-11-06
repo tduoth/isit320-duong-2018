@@ -79,9 +79,9 @@ class App extends Component {
                         <label htmlFor="elf-radio-version">Version Info</label>
                     </div>
 
-                   //<div className="form-group">
-                    //    <button type="submit" className="btn btn-primary">Run System Script</button>
-                   // </div>
+                   <div className="form-group">
+                       <button type="submit" className="btn btn-primary">Run System Script</button>
+                   </div>
                 </form>
             </div>
         );
