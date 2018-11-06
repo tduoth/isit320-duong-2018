@@ -129,7 +129,7 @@ handleSubmit = (event) => {
                         data-endpoint="0"
                         value="VersionCheck" 
                         id="elf-radio-version" 
-                        onChange={this.handleChange}/>
+                        onChange={this.versionChk}/>
                         
                         <label htmlFor="elf-radio-version"> Version Info </label>
                     </div>
@@ -147,7 +147,7 @@ handleSubmit = (event) => {
                   <img src={logo} className="App-logo" alt="logo"/>
                   
                   
-                
+                    
                     
                     
                     <label for="elf-radio-uptime">Uptime</label>
@@ -159,6 +159,17 @@ handleSubmit = (event) => {
                         <pre>{this.state.allData}</pre>
                     </section>
                     <button onClick={this.runScript}>Run Foo</button>
+                    
+                    
+                    
+                    <p>CPU INFO</p>
+                    <br />
+                    <button onClick={this.copyFile}>Get CPU Info</button>
+                    <pre>{this.state.allData}</pre>
+                    <p>CURRENT LINUX INFO</p>
+                    <br />
+                    <button onClick={this.versionChk}>Check Version</button>
+                    <pre>{this.state.currentVersion}</pre>
 </main>
 
             </div>
