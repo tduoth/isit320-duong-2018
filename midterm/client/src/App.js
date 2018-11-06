@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -67,15 +68,28 @@ class App extends Component {
 
 
     render() {
+        
+        const selectedValue = event.target.value;
+        
         const radioWeb = (
             <div className="container">
                 <form onSubmit={this.handleSubmit} >
 
                     <div className="elf-form-field" >
-                        <input type="radio" name="app-choice" value="CpuInfo" id="elf-radio-cpu" onChange={this.handleChange}/>
+                        <input  
+                        type="radio" 
+                        name="app-choice" 
+                        value="CpuInfo" 
+                        id="elf-radio-cpu" 
+                        onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
-                        <input type="radio" name="app-choice" value="VersionCheck" id="elf-radio-version" onChange={this.handleChange}/>
+                        <input 
+                        type="radio" 
+                        name="app-choice" 
+                        value="VersionCheck" 
+                        id="elf-radio-version" 
+                        onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-version">Version Info</label>
                     </div>
 
@@ -88,6 +102,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
+                  <img src={logo} className="App-logo" alt="logo"/>
                     <p>CPU INFO</p>
                     <br />
                     <button onClick={this.copyFile}>Get CPU Info</button>
@@ -96,6 +111,7 @@ class App extends Component {
                     <br />
                     <button onClick={this.versionChk}>Check Version</button>
                     <pre>{this.state.currentVersion}</pre>
+                    <label for="elf-radio-uptime">Uptime</label>
 
                 </header>
          <main>
