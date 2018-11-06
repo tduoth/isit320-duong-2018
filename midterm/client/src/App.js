@@ -94,7 +94,7 @@ class App extends Component {
                     <button onClick={this.copyFile}>Get CPU Info</button>
                     <pre>{this.state.allData}</pre>
                     <br />
-                    <p>======================================</p>
+                    <p>-------------------------------------------------</p>
                     <br />
                     <p>Check the current version of Linux</p>
                     <br />
@@ -103,7 +103,7 @@ class App extends Component {
 
 
                     <br />
-                    <p>======================================</p>
+                  <p>-------------------------------------------------</p>
                     <br />
                 </header>
                 <main>
