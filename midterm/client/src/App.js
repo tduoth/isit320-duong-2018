@@ -86,7 +86,7 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit} >
 
                     <div className="elf-form-field" >
-                        <input type="radio" name="app-choice" value="CpuInfo" id="elf-radio-cpu" onChange={this.handleChange}/>
+                        <input type="radio" name="app-choice" value="CpuInfo" id="elf-radio-cpu" onChange={this.handleSubmit}/>
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
 
                         <input type="radio" name="app-choice" value="VersionCheck" id="elf-radio-version" onChange={this.handleChange}/>
