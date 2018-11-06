@@ -88,22 +88,15 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <p>Display CPU information</p>
+                    <p>CPU INFO</p>
                     <br />
                     <button onClick={this.copyFile}>Get CPU Info</button>
                     <pre>{this.state.allData}</pre>
-                    <br />
-                    <p>-------------------------------------------------</p>
-                    <br />
-                    <p>Check the current version of Linux</p>
+                    <p>CURRENT LINUX INFO</p>
                     <br />
                     <button onClick={this.versionChk}>Check Version</button>
                     <pre>{this.state.currentVersion}</pre>
 
-
-                    <br />
-                  <p>-------------------------------------------------</p>
-                    <br />
                 </header>
                 <main>
                     <section>
