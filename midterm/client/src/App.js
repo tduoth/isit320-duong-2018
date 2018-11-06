@@ -140,7 +140,19 @@ handleSubmit = (event) => {
             <div className="App">
                 <header className="App-header">
                   <img src={logo} className="App-logo" alt="logo"/>
-              
+                  
+                  
+                    <p>CPU INFO</p>
+                    <br />
+                    <button onClick={this.copyFile}>Get CPU Info</button>
+                    <pre>{this.state.allData}</pre>
+                    <p>CURRENT LINUX INFO</p>
+                    <br />
+                    <button onClick={this.versionChk}>Check Version</button>
+                    <pre>{this.state.currentVersion}</pre>
+                    
+                    
+                    <label for="elf-radio-uptime">Uptime</label>
 
                 </header>
          <main>
@@ -148,7 +160,7 @@ handleSubmit = (event) => {
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
-                    <button onClick={this.runFoo}>Run Foo</button>
+                    <button onClick={this.runScript}>Run Foo</button>
 </main>
 
             </div>
