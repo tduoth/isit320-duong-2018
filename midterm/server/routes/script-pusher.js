@@ -136,7 +136,7 @@ router.get('/copy-file', function(request, response) {
 
 router.get('/version-check', function(request, response) {
     'use strict';
-    versionChk()
+    VersionCheck()
         .then(result => {
             console.log(JSON.stringify(result, null, 4));
             response.send(result);
