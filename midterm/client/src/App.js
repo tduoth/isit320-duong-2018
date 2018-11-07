@@ -132,7 +132,7 @@ handleSubmit = (event) => {
                         type="radio" 
                         name="app-choice" 
                         data-endpoint="0"
-                        value="VersionCheck" 
+                        value="currentVersion" 
                         id="elf-radio-version" 
                         onChange={this.handleChange}/>
                         
