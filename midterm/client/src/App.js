@@ -114,6 +114,8 @@ handleSubmit = (event) => {
                 
                     <div className="elf-form-field" >
                     <legend>Services</legend>
+                    
+                    
                         <input  
                         type="radio" 
                         name="app-choice" 
@@ -121,7 +123,18 @@ handleSubmit = (event) => {
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
                         onChange={this.handleChange}/>
+                        
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
+                        
+                          <input 
+                        type="radio" 
+                        name="app-choice" 
+                        data-endpoint="0"
+                        value="uptime" 
+                        id="elf-radio-version" 
+                        onChange={this.handleChange}/>
+                        
+                        <label for="elf-radio-uptime">Uptime</label>
 
                         <input 
                         type="radio" 
@@ -146,11 +159,7 @@ handleSubmit = (event) => {
                 <header className="App-header">
                   <img src={logo} className="App-logo" alt="logo"/>
                   
-                  
-                    
-                    
-                    
-                    <label for="elf-radio-uptime">Uptime</label>
+                
 
                 </header>
          <main>
