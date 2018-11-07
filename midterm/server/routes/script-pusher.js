@@ -59,6 +59,33 @@ const check = (request, response, next) => {
 
 router.use(check);
 
+const scriptRunner = (script) => {
+    return new Promise(function(resolve, reject){
+        console.log('CpuInfo', process.env.SETUP_LINUXBOX);
+        
+        const pushScript = spawn(process.env.SETUP_LINUXBOX +'/' + script);
+        
+        pushScript.stdout.on('data', data => {
+            //console.log('child stdout:\n${data}');
+            allData += data;
+            
+        });
+        
+        pushScript.stderr.on('data', data => {
+            allData += data;
+        });
+        
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+                
+            });
+        });
+    });
+};
+
 const versionChk = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run Version check', process.env.SETUP_LINUXBOX);
