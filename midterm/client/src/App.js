@@ -126,15 +126,7 @@ handleSubmit = (event) => {
                         
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
                         
-                          <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="uptime" 
-                        id="elf-radio-version" 
-                        onChange={this.handleChange}/>
-                        
-                        <label for="elf-radio-uptime">Uptime</label>
+                    
 
                         <input 
                         type="radio" 
@@ -145,6 +137,18 @@ handleSubmit = (event) => {
                         onChange={this.handleChange}/>
                         
                         <label htmlFor="elf-radio-version"> Version Info </label>
+                        
+                        <input 
+                        type="radio" 
+                        name="app-choice" 
+                        data-endpoint="0"
+                        value="uptime" 
+                        id="elf-radio-version" 
+                        onChange={this.handleChange}/>
+                        
+                        <label for="elf-radio-uptime">Uptime</label>
+                        
+                        
                     </div>
 
                    <div className="form-group">
@@ -169,14 +173,6 @@ handleSubmit = (event) => {
                     </section>
                     <button onClick={this.runScript}>Run Foo</button>
                     
-                    <p>CPU INFO</p>
-                    <br />
-                    <button onClick={this.copyFile}>Get CPU Info</button>
-                    <pre>{this.state.allData}</pre>
-                    <p>CURRENT LINUX INFO</p>
-                    <br />
-                    <button onClick={this.versionChk}>Check Version</button>
-                    <pre>{this.state.currentVersion}</pre>
 </main>
 
             </div>
