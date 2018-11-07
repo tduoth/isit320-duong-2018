@@ -86,7 +86,7 @@ const scriptRunner = (script) => {
     });
 };
 
-const versionChk = () => {
+const VersionCheck = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run Version check', process.env.SETUP_LINUXBOX);
 
