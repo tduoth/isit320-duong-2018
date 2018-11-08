@@ -170,6 +170,7 @@ handleSubmit = (event) => {
                     <section>{radioWeb}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
+                        <pre>{this.state.currentVersion}</pre>
                     </section>
                     <button onClick={this.runScript}>Run Foo</button>
                     
