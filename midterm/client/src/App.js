@@ -140,6 +140,7 @@ handleSubmit = (event) => {
                 </form>
             </div>
             );
+              const radioWeb2 = (
             
              <div className="container">
                 <form onSubmit={this.handleSubmit}>
@@ -167,6 +168,7 @@ handleSubmit = (event) => {
                    </fieldset>
                 </form>
             </div>
+            );
         
         
    
@@ -182,6 +184,7 @@ handleSubmit = (event) => {
                 </header>
          <main>
                     <section>{radioWeb}</section>
+                    <section>{radioWeb2}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
