@@ -10,7 +10,7 @@ const spawn = require('child_process').spawn;
 let allData = '';
 let currentVersion = '';
 
-const copyFile = () => {
+const CpuInfo= () => {
     return new Promise(function(resolve, reject) {
         console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
 
@@ -162,19 +162,6 @@ const VersionCheck = () => {
     });
 };
 
-router.get('/copy-file', function(request, response) {
-    'use strict';
-    copyFile()
-        .then(result => {
-            console.log(JSON.stringify(result, null, 4));
-            response.send(result);
-        })
-        .catch(err => {
-            console.log(err);
-            response.send(err);
-        });
-});
-
 router.get('/version-check', function(request, response) {
     'use strict';
     VersionCheck()
@@ -203,12 +190,6 @@ router.get('/run-script', (request, response) => {
     });
 });
 
-
-
-router.get('/copy-script', function(request, response) {
-    'use strict';
-    response.send({ result: 'success' });
-});
 
 router.get('/foo', function(request, response) {
     var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
