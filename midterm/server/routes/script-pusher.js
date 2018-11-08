@@ -147,6 +147,23 @@ router.get('/version-check', function(request, response) {
         });
 });
 
+
+router.get('/run-script', (request, response) => {
+    'use strict';
+    allData= '';
+    console.log('QUERY', request.query);
+    scriptRunner(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+
+
 router.get('/copy-script', function(request, response) {
     'use strict';
     response.send({ result: 'success' });
