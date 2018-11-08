@@ -8,7 +8,7 @@ class App extends Component {
         super();
         this.state = {
             file: 'File name will be placed here.',
-            status: 'waiting for server'
+            State: "Waiting..."
         };
     }
 
