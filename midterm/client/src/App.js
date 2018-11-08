@@ -68,7 +68,7 @@ runScript = (path, script) => {
             });
     };
 
-    versionChk = () => {
+    versionCheck = () => {
         const that = this;
         fetch('/script-pusher/version-check')
             .then(function(response) {
@@ -132,7 +132,7 @@ handleSubmit = (event) => {
                         type="radio" 
                         name="app-choice" 
                         data-endpoint="0"
-                        value="currentVersion" 
+                        value="versionCheck" 
                         id="elf-radio-version" 
                         onChange={this.handleChange}/>
                         
