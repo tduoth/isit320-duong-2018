@@ -10,7 +10,8 @@ class App extends Component {
             allData: 'CPU: unknown',
             currentVersion: 'Version: unknown',
             selectedValue: '',
-            endPointIndex: 0
+            endPointIndex: 0,
+            status: 'waiting for server'
             
         };
     }
@@ -154,6 +155,7 @@ handleSubmit = (event) => {
                         <pre>{this.state.currentVersion}</pre>
                     </section>
                     <button onClick={this.queryServer}>Run Foo</button>
+                    <pre>{this.state.status}</pre>
                     
 </main>
 
