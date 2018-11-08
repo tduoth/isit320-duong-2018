@@ -155,6 +155,20 @@ router.get('/run-script', (request, response) => {
     });
 });
 
+router.get('/run-system-tool', (request, response) =>{
+    'use strict';
+       allData= '';
+    console.log('QUERY IN RUN SYTEM TOOL', request.query);
+    runSytemTool(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
 
 router.get('/foo', function(request, response) {
     var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
