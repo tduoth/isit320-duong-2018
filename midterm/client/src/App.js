@@ -102,7 +102,7 @@ handleSubmit = (event) => {
                         type="radio" 
                         name="app-choice" 
                         data-endpoint="0"
-                        value="CpuInfo" 
+                        value="runCpuInfo" 
                         id="elf-radio-cpu" 
                         onChange={this.handleChange}/>
                         

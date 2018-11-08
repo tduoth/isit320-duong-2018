@@ -3,47 +3,12 @@ var express = require('express');
 var router = express.Router();
 
 
-
-
 const spawn = require('child_process').spawn;
 
 let allData = '';
 let currentVersion = '';
 
-const CpuInfo= () => {
-    return new Promise(function(resolve, reject) {
-        console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
 
-        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/CpuInfo');
-
-        pushScript.stdout.on('data', data => {
-            console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
-            //console.log('PUSH', data);
-        });
-
-        pushScript.stderr.on('data', data => {
-            console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
-            //console.error('PUSH', data);
-        });
-
-        pushScript.on('close', code => {
-            resolve({
-                result: 'success',
-                allData: allData,
-                code: code
-            });
-        });
-
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
-    });
-};
 
 
 const hostAddress = '52.32.226.69';
@@ -86,7 +51,7 @@ const runCpuInfo = (hostAddress, response) => {
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
-    const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
+    const validOptions = ['runCpuInfo', 'VersionCheck', 'uptime'];
     if (request.query.script) {
         console.log('INSIDE REQUEST SCRIPT');
         if (!validOptions.includes(request.query.script)) {
@@ -102,7 +67,7 @@ router.use(check);
 
 const scriptRunner = (script) => {
     return new Promise(function(resolve, reject){
-        console.log('CpuInfo', process.env.SETUP_LINUXBOX);
+        console.log('runCpuInfo', process.env.SETUP_LINUXBOX);
         
         const pushScript = spawn(process.env.SETUP_LINUXBOX +'/' + script);
         
