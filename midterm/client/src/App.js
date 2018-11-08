@@ -123,9 +123,9 @@ handleSubmit = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="0"
+                        data-endpoint="2"
                         value="uptime" 
-                        id="elf-radio-version" 
+                        id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
                         
                         <label for="elf-radio-uptime">Uptime</label>
@@ -139,13 +139,45 @@ handleSubmit = (event) => {
                    </fieldset>
                 </form>
             </div>
-        );
+            );
+            
+             <div className="container">
+                <form onSubmit={this.handleSubmit}>
+                <fieldset>
+                
+                    <div className="elf-form-field" >
+                    <legend>Remote Services</legend>
+                    
+                        <input 
+                        type="radio" 
+                        name="app-choice" 
+                        data-endpoint="2"
+                        value="uptime" 
+                        id="elf-radio-uptime" 
+                        onChange={this.handleChange}/>
+                        
+                        <label for="elf-radio-uptime">Uptime</label>
+                        
+                        
+                    </div>
+
+                   <div className="form-group">
+                       <button type="submit" className="btn btn-primary">Run System Script </button>
+                   </div>
+                   </fieldset>
+                </form>
+            </div>
+        
+        
+   
+        
+               
+        
         return (
             <div className="App">
                 <header className="App-header">
                   <img src={logo} className="App-logo" alt="logo"/>
                   
-                
 
                 </header>
          <main>
