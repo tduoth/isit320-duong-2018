@@ -15,6 +15,22 @@ class App extends Component {
         };
     }
     
+ queryServer = () => {
+        const that = this;
+        fetch('/script-pusher/foo')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                that.setState(foo => (json));
+            })
+            .catch(function(ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            });
+            
+    };
+    
 runScript = (path, script) => {
     const that = this;
     if (!script) {
@@ -137,7 +153,7 @@ handleSubmit = (event) => {
                         <pre>{this.state.allData}</pre>
                         <pre>{this.state.currentVersion}</pre>
                     </section>
-                    <button onClick={this.runScript}>Run Foo</button>
+                    <button onClick={this.queryServer}>Run Foo</button>
                     
 </main>
 
