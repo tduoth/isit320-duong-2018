@@ -216,4 +216,8 @@ router.get('/foo', function(request, response) {
     response.send(message);
 });
 
+const uptime = require('os-uptime');
+
+console.log('System was started at: %s', uptime().toLocaleString());
+
 module.exports = router;
