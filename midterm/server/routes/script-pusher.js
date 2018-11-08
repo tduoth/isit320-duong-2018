@@ -51,7 +51,7 @@ const runCpuInfo = (hostAddress, response) => {
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
-    const validOptions = ['runCpuInfo', 'VersionCheck', 'uptime'];
+    const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
     if (request.query.script) {
         console.log('INSIDE REQUEST SCRIPT');
         if (!validOptions.includes(request.query.script)) {
@@ -67,7 +67,7 @@ router.use(check);
 
 const scriptRunner = (script) => {
     return new Promise(function(resolve, reject){
-        console.log('runCpuInfo', process.env.SETUP_LINUXBOX);
+        console.log('CpuInfo', process.env.SETUP_LINUXBOX);
         
         const pushScript = spawn(process.env.SETUP_LINUXBOX +'/' + script);
         
