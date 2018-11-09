@@ -120,7 +120,40 @@ const VersionCheck = () => {
         });
     });
 };
+const uptime = () => {
+    return new Promise(function(resolve, reject) {
+        console.log('Run UpTime', process.env.SETUP_LINUXBOX);
 
+        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/UpTime');
+
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            currentVersion += ' ' + data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            currentVersion += ' ' + data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                currentVersion: currentVersion,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
 router.get('/version-check', function(request, response) {
     'use strict';
     VersionCheck()
