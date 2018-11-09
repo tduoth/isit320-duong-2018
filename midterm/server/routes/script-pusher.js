@@ -172,7 +172,7 @@ router.get('/run-script', (request, response) => {
     'use strict';
     allData = "",
     console.log('QUERY', request.query);
-    VersionCheck(request.query.script)
+    scriptRunner(request.query.script)
     .then(result => {
         response.send(result);
     })
@@ -195,7 +195,6 @@ router.get('/run-system-tool', (request, response) =>{
         response.send(err);
     });
 });
-
 router.get('/uptime', function(request, response) {
     'use strict'
     console.log('UPTIME', request.query)
