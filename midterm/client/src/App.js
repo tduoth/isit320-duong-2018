@@ -9,6 +9,7 @@ class App extends Component {
         this.state = {
             allData: 'CPU: unknown',
             currentVersion: 'Version: unknown',
+            uptime: '',
             selectedValue: '',
             endPointIndex: 0,
             State: 'waiting for server'
@@ -105,7 +106,6 @@ handleSubmit = (event) => {
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
                         onChange={this.handleChange}/>
-                        
                         <label htmlFor="elf-radio-cpu">CpuInfo</label>
                         
                     
@@ -117,7 +117,6 @@ handleSubmit = (event) => {
                         value="VersionCheck" 
                         id="elf-radio-version" 
                         onChange={this.handleChange}/>
-                        
                         <label htmlFor="elf-radio-version"> Version Info </label>
                         
                         <input 
