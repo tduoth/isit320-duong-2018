@@ -8,7 +8,7 @@ const spawn = require('child_process').spawn;
 let allData = '';
 let currentVersion = '';
 
-const CpuInfo= () => {
+   const CpuInfo= () => {
     return new Promise(function(resolve, reject) {
         console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
 
@@ -33,6 +33,7 @@ const CpuInfo= () => {
                 code: code
             });
         });
+
         pushScript.on('error', code => {
             reject({
                 result: 'error',
