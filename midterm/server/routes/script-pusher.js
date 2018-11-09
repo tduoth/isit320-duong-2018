@@ -170,7 +170,7 @@ router.get('/version-check', function(request, response) {
 
 router.get('/run-script', (request, response) => {
     'use strict';
-    allData= '';
+    allData()
     console.log('QUERY', request.query);
     scriptRunner(request.query.script)
     .then(result => {
@@ -202,13 +202,9 @@ router.get('/foo', function(request, response) {
     console.log('Foo called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
-
-router.get('/uptime', function(request, response) {
-    console.log('run-get-started called in ssh-runner', host(Address))
-    var child = require('child_process');
+var child = require('child_process');
 child.exec('uptime', function (error, stdout, stderr) {
     console.log(stdout);
-});
 });
 
 module.exports = router;
