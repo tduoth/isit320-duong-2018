@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', '/ssh-runner/'];
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', '/script-pusher/run?script='];
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
@@ -50,7 +50,7 @@ runScript = (path, script) => {
             let info = '';
             if (json.result === 'error') {
                 info = json.error;
-            } else if (script === '') {
+            } else if (script === 'uptime') {
                 var regex1 = RegExp('model name.*', 'g');
                 let array1 = regex1.exec(json.allData);
                 while (array1 !== null) {
