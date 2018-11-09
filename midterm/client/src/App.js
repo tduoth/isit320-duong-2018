@@ -5,10 +5,9 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', '/ssh-runner'];
         this.state = {
             allData: 'CPU: unknown',
-            currentVersion: 'Version: unknown',
             uptime: '',
             selectedValue: '',
             endPointIndex: 0,
@@ -44,6 +43,7 @@ runScript = (path, script) => {
         })
         .then(function (json) {
             console.log('allData', json.allData);
+            console.log('uptime', json.uptime);
             console.log('result', json.result);
             console.log('code', json.code);
             console.log('error', json.error);
@@ -87,6 +87,14 @@ handleSubmit = (event) => {
     this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
     event.preventDefault();
 };
+
+handleRemote = (event) => {
+        this.setState({allData: ''});
+    console.log('A name was submitted: ', this.state);
+    this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+    event.preventDefault();
+};
+
 
 
     render() {
@@ -154,7 +162,7 @@ handleSubmit = (event) => {
                         data-endpoint="2"
                         value="uptime" 
                         id="elf-radio-uptime" 
-                        onChange={this.handleChange}/>
+                        onChange={this.handleRemote}/>
                         
                         <label for="elf-radio-uptime">Uptime</label>
                         
