@@ -170,7 +170,7 @@ router.get('/version-check', function(request, response) {
 
 router.get('/run-script', (request, response) => {
     'use strict';
-    allData()
+    allData = "",
     console.log('QUERY', request.query);
     scriptRunner(request.query.script)
     .then(result => {
