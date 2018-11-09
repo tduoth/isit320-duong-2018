@@ -172,6 +172,10 @@ router.get('/foo', function(request, response) {
 
 router.get('/uptime', function(request, response) {
     console.log('run-get-started called in ssh-runner', host(Address))
+    var child = require('child_process');
+child.exec('uptime', function (error, stdout, stderr) {
+    console.log(stdout);
+});
 });
 
 module.exports = router;
