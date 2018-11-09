@@ -202,9 +202,10 @@ router.get('/foo', function(request, response) {
     console.log('Foo called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
-var child = require('child_process');
-child.exec('uptime', function (error, stdout, stderr) {
-    console.log(stdout);
+
+
+router.get('/uptime', function(request, response) {
+    script(uptime())
 });
 
 module.exports = router;
