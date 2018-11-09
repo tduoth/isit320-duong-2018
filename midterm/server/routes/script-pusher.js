@@ -186,7 +186,7 @@ router.get('/run-system-tool', (request, response) =>{
     'use strict';
        allData= '';
     console.log('QUERY IN RUN SYTEM TOOL', request.query);
-    CpuInfo(request.query.script)
+    runSytemTool(request.query.script)
     .then(result => {
         response.send(result);
     })
@@ -195,6 +195,7 @@ router.get('/run-system-tool', (request, response) =>{
         response.send(err);
     });
 });
+
 router.get('/uptime', function(request, response) {
     'use strict'
     console.log('UPTIME', request.query)
