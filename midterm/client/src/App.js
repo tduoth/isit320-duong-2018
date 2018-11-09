@@ -150,7 +150,7 @@ handleRemote = (event) => {
               const radioWeb2 = (
             
              <div className="container">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleRemote}>
                 <fieldset>
                 
                     <div className="elf-form-field" >
@@ -162,7 +162,7 @@ handleRemote = (event) => {
                         data-endpoint="2"
                         value="uptime" 
                         id="elf-radio-uptime" 
-                        onChange={this.handleRemote}/>
+                        onChange={this.handleChange}/>
                         
                         <label for="elf-radio-uptime">Uptime</label>
                         
