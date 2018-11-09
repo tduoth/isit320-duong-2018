@@ -120,40 +120,7 @@ const VersionCheck = () => {
         });
     });
 };
-const uptime = () => {
-    return new Promise(function(resolve, reject) {
-        console.log('Run uptime');
-
-        const pushScript = '/uptime';
-
-        pushScript.stdout.on('data', data => {
-            console.log(`child stdout:\n${data}`);
-            currentVersion += ' ' + data;
-            //console.log('PUSH', data);
-        });
-
-        pushScript.stderr.on('data', data => {
-            console.log(`child stderr:\n${data}`);
-            currentVersion += ' ' + data;
-            //console.error('PUSH', data);
-        });
-
-        pushScript.on('close', code => {
-            resolve({
-                result: 'success',
-                uptime: uptime,
-                code: code
-            });
-        });
-
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
-    });
-};
+    
 router.get('/version-check', function(request, response) {
     'use strict';
     VersionCheck()
@@ -198,7 +165,6 @@ router.get('/run-system-tool', (request, response) =>{
 router.get('/uptime', function(request, response) {
     'use strict'
     console.log('UPTIME', request.query)
-    uptime(request.query.script)
     .then(result => {response.send(result);})
     .catch(err => {console.log(err); 
         response.send(err);
