@@ -170,7 +170,7 @@ router.get('/run-system-tool', (request, response) =>{
 router.get('/uptime', function(request, response) {
     'use strict'
     console.log('UPTIME', request.query)
-    uptime(request.query.script)
+    runSytemTool(request.query.script)
     .then(result => {response.send(result);})
     .catch(err => {console.log(err); 
         response.send(err);
