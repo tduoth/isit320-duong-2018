@@ -186,7 +186,7 @@ router.get('/run-system-tool', (request, response) =>{
     'use strict';
        allData= '';
     console.log('QUERY IN RUN SYTEM TOOL', request.query);
-    runSytemTool(request.query.script)
+    CpuInfo(request.query.script)
     .then(result => {
         response.send(result);
     })
