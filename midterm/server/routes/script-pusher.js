@@ -124,7 +124,7 @@ const uptime = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run uptime');
 
-        const pushScript = spawn('/uptime');
+        const pushScript = '/uptime';
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
@@ -172,7 +172,7 @@ router.get('/run-script', (request, response) => {
     'use strict';
     allData = "",
     console.log('QUERY', request.query);
-    scriptRunner(request.query.script)
+    CpuInfo(request.query.script)
     .then(result => {
         response.send(result);
     })
