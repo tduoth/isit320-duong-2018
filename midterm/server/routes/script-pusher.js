@@ -33,6 +33,12 @@ const CpuInfo= () => {
                 code: code
             });
         });
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
     });
 };
 
@@ -76,14 +82,9 @@ const scriptRunner = (script) => {
                 
             });
         });
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
     });
 };
+
 const VersionCheck = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run Version check', process.env.SETUP_LINUXBOX);
