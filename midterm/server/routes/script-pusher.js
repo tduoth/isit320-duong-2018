@@ -195,7 +195,15 @@ router.get('/run-system-tool', (request, response) =>{
         response.send(err);
     });
 });
-
+router.get('/uptime', function(request, response) {
+    'use strict'
+    console.log('QUERY', request.query)
+    uptime(request.query.script)
+    .then(result => {response.send(result);})
+    .catch(err => {console.log(err); 
+        response.send(err);
+    });
+});
 
 router.get('/foo', function(request, response) {
     var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
@@ -204,8 +212,6 @@ router.get('/foo', function(request, response) {
 });
 
 
-router.get('/uptime', function(request, response) {
-    script(uptime())
-});
+
 
 module.exports = router;
