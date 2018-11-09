@@ -33,7 +33,9 @@ const CpuInfo= () => {
                 code: code
             });
         });
-        
+    });
+};
+
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
     const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
@@ -163,6 +165,6 @@ router.get('/foo', function(request, response) {
 
 router.get('/uptime', function(request, response) {
     console.log('run-get-started called in ssh-runner', host(Address));
-})
+});
 
 module.exports = router;
