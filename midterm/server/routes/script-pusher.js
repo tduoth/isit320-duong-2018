@@ -63,7 +63,7 @@ const scriptRunner = (script) => {
     return new Promise(function(resolve, reject){
         console.log('CpuInfo', process.env.SETUP_LINUXBOX);
         
-        const pushScript = spawn(process.env.SETUP_LINUXBOX +'/CpuInfo');
+        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/' + script);
         
         pushScript.stdout.on('data', data => {
             //console.log('child stdout:\n${data}');
