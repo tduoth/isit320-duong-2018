@@ -5,7 +5,8 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', '/script-pusher/run?script='];
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', 
+        '/script-pusher/uptime?script='];
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
