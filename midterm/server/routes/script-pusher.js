@@ -8,6 +8,9 @@ const spawn = require('child_process').spawn;
 let allData = '';
 let currentVersion = '';
 
+
+
+
    const CpuInfo= () => {
     return new Promise(function(resolve, reject) {
         console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
@@ -171,7 +174,7 @@ router.get('/foo', function(request, response) {
 });
 
 router.get('/uptime', function(request, response) {
-    console.log('run-get-started called in ssh-runner', host(Address));
+    console.log('run-get-started called in ssh-runner', host(Address))
 });
 
 module.exports = router;
