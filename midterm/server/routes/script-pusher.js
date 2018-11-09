@@ -122,9 +122,9 @@ const VersionCheck = () => {
 };
 const uptime = () => {
     return new Promise(function(resolve, reject) {
-        console.log('Run uptime', process.env.SETUP_LINUXBOX);
+        console.log('Run uptime');
 
-        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/uptime');
+        const pushScript = spawn('/uptime');
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
@@ -141,7 +141,7 @@ const uptime = () => {
         pushScript.on('close', code => {
             resolve({
                 result: 'success',
-                currentVersion: currentVersion,
+                uptime: uptime,
                 code: code
             });
         });
