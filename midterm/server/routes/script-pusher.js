@@ -8,47 +8,32 @@ const spawn = require('child_process').spawn;
 let allData = '';
 let currentVersion = '';
 
+const CpuInfo= () => {
+    return new Promise(function(resolve, reject) {
+        console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
 
+        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/CpuInfo');
 
-
-const hostAddress = '52.32.226.69';
-
-const runCpuInfo = (hostAddress, response) => {
-    var conn = new Client();
-    conn.on('ready', function() {
-        console.log('Client :: ready');
-        conn.exec('~/CpuInfo', function(err, stream) {
-            if (err) throw err;
-            stream
-                .on('close', function(code, signal) {
-                    console.log(
-                        'Stream :: close :: code: ' +
-                            code +
-                            ', signal: ' +
-                            signal
-                    );
-                    conn.end();
-                    response.send({ result: 'success', allData: allData });
-                })
-                .on('data', function(data) {
-                    console.log('STDOUT: ' + data);
-                    allData += data;
-                })
-                .stderr.on('data', function(data) {
-                    console.log('STDERR: ' + data);
-                    allData += data;
-                });
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.log('PUSH', data);
         });
-    }).connect({
-        host: hostAddress,
-        port: 22,
-        username: 'ubuntu',
-        privateKey: require('fs').readFileSync(
-            process.env.HOME + '/.ssh/ec2key'
-        )
-    });
-};
 
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+        
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
     const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
