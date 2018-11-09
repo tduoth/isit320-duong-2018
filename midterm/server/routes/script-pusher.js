@@ -86,6 +86,11 @@ const scriptRunner = (script) => {
     });
 };
 
+const uptime = () => {
+    var uptime = process.uptime();
+console.log(format(uptime));
+};
+
 const VersionCheck = () => {
     return new Promise(function(resolve, reject) {
         console.log('Run Version check', process.env.SETUP_LINUXBOX);
@@ -165,6 +170,7 @@ router.get('/run-system-tool', (request, response) =>{
 router.get('/uptime', function(request, response) {
     'use strict'
     console.log('UPTIME', request.query)
+    uptime(request.query.script)
     .then(result => {response.send(result);})
     .catch(err => {console.log(err); 
         response.send(err);
