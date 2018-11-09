@@ -43,7 +43,6 @@ runScript = (path, script) => {
         })
         .then(function (json) {
             console.log('allData', json.allData);
-            console.log('uptime', json.uptime);
             console.log('result', json.result);
             console.log('code', json.code);
             console.log('error', json.error);
@@ -88,12 +87,6 @@ handleSubmit = (event) => {
     event.preventDefault();
 };
 
-handleRemote = (event) => {
-        this.setState({allData: ''});
-    console.log('A name was submitted: ', this.state);
-    this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
-    event.preventDefault();
-};
 
 
 
@@ -150,7 +143,7 @@ handleRemote = (event) => {
               const radioWeb2 = (
             
              <div className="container">
-                <form onSubmit={this.handleRemote}>
+                <form onSubmit={this.handleSubmit}>
                 <fieldset>
                 
                     <div className="elf-form-field" >
@@ -194,6 +187,7 @@ handleRemote = (event) => {
                     <section>{radioWeb2}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
+                        <pre>{this.state.uptime}</pre>
                     </section>
                     <button onClick={this.queryServer}>Run Foo</button>
                     <pre>{this.state.State}</pre>
