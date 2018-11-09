@@ -172,7 +172,7 @@ router.get('/run-script', (request, response) => {
     'use strict';
     allData = "",
     console.log('QUERY', request.query);
-    CpuInfo(request.query.script)
+    scriptRunner(request.query.script)
     .then(result => {
         response.send(result);
     })
