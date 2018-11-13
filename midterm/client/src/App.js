@@ -6,7 +6,8 @@ import ElfHeader from './ElfHeader';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', 
+        '/script-pusher/run-uptime-tool?script='];
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
@@ -148,7 +149,7 @@ handleSubmit = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="1"
+                        data-endpoint="3"
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
