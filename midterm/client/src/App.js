@@ -6,8 +6,7 @@ import ElfHeader from './ElfHeader';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', 
-        '/script-pusher/run-uptime-tool?script='];
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', ];
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
