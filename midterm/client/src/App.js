@@ -6,11 +6,15 @@ import ElfHeader from './ElfHeader';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=',  '/script-pusher/run-uptime-tool?script='];
+        this.dataEndPoints = [
+        '/script-pusher/run-script?script=', 
+        '/script-pusher/run-system-tool?script=',  
+        '/script-pusher/run-uptime-tool?script='];
+        
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
-            Uptime: 'Uptime: unknown',
+            uptime: 'Uptime: unknown',
             selectedValue: '',
             endPointIndex: 0,
             State: 'waiting for server'
@@ -183,7 +187,7 @@ handleSubmit = (event) => {
                     </div>
 
                    <div className="form-group">
-                       <button type="submit" className="btn btn-primary">Run System Script </button>
+                       <button type="submit" className="btn btn-primary1">Run System Script </button>
                    </div>
                    </fieldset>
                  </form>
