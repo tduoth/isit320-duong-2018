@@ -10,7 +10,7 @@ const runCpuInfo = (hostAddress, response) => {
     var conn = new Client();
     conn.on('ready', function () {
         console.log('Client :: ready');
-        conn.exec('~/uptime', function (err, stream) {
+        conn.exec('~/cat CpuInfo', function (err, stream) {
             if (err) throw err;
             stream
                 .on('close', function (code, signal) {
