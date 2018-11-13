@@ -8,40 +8,6 @@ const spawn = require('child_process').spawn;
 let allData = '';
 let currentVersion = '';
 
-   const CpuInfo= () => {
-    return new Promise(function(resolve, reject) {
-        console.log('Run CPU Info', process.env.SETUP_LINUXBOX);
-
-        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/CpuInfo');
-
-        pushScript.stdout.on('data', data => {
-            console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
-            //console.log('PUSH', data);
-        });
-
-        pushScript.stderr.on('data', data => {
-            console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
-            //console.error('PUSH', data);
-        });
-
-        pushScript.on('close', code => {
-            resolve({
-                result: 'success',
-                allData: allData,
-                code: code
-            });
-        });
-
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
-    });
-};
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
@@ -84,21 +50,6 @@ const scriptRunner = (script) => {
             });
         });
     });
-};
-var http = require('http');
-
-var startTime;
-
-
-const uptime = () => {
-    var server = http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Uptime: ' + (Date.now() - startTime) + 'ms');
-});
-
-server.listen(3000, function () {
-    startTime = Date.now();
-});
 };
 
 const VersionCheck = () => {
@@ -177,23 +128,11 @@ router.get('/run-system-tool', (request, response) =>{
         response.send(err);
     });
 });
-router.get('/uptime', function(request, response) {
-    'use strict'
-    console.log('UPTIME', request.query)
-    uptime(request.query.script)
-    .then(result => {response.send(result);})
-    .catch(err => {console.log(err); 
-        response.send(err);
-    });
-});
 
 router.get('/foo', function(request, response) {
     var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
     console.log('Foo called:\n' + JSON.stringify(message, null, 4));
     response.send(message);
 });
-
-
-
 
 module.exports = router;

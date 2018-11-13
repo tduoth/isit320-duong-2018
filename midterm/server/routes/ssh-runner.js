@@ -47,11 +47,8 @@ router.get('/call-cpu-info', (request, response) => {
     runCpuInfo(hostAddress, response);
 });
 
-router.get('/uptime', function(request, response) {
-    console.log('run-get-started called in ssh-runner', host(Address))
-    var child = require('child_process');
-child.exec('uptime', function (error, stdout, stderr) {
-    console.log(stdout);
+router.get('/run-uptime', (request, response) => {
+    runUptime(hostAddress, response);
 });
-});
+
 module.exports = router;

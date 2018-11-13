@@ -5,12 +5,10 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script=', 
-        '/script-pusher/uptime?script='];
+        this.dataEndPoints = ['/script-pusher/run-script?script=', '/script-pusher/run-system-tool?script='];
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
-            uptime: '',
             selectedValue: '',
             endPointIndex: 0,
             State: 'waiting for server'
@@ -33,6 +31,21 @@ class App extends Component {
             });
             
     };
+    
+        Uptime = () => {
+        const that = this;
+        fetch('ssh-runner/run-uptime')
+            .then(function (response) {return response.json();})
+            .then(function (json) {
+                console.log('JSON allData from server:', json.allData);
+                that.setState({allData: json.allData});
+            })
+            .catch(function (ex) {
+                console.log('parsing failed, error on server, URL bad, network down, or similar');
+                console.log(JSON.stringify(ex, null, 4));
+            });
+            
+        };
     
 runScript = (path, script) => {
     const that = this;
@@ -59,9 +72,7 @@ runScript = (path, script) => {
                     console.log(`Found ${array1[0]}.`);
                     array1 = regex1.exec(json.allData);
                 }
-            } else {
-                info = json.allData;
-            }
+            } else { info = json.allData;}
             that.setState({allData: info});
         })
         .catch(function (ex) {
@@ -85,12 +96,23 @@ handleChange = (event) => {
 handleSubmit = (event) => {
     this.setState({allData: ''});
     console.log('A name was submitted: ', this.state);
-    this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
-    event.preventDefault();
+            if(this.state.selectedValue === 'uptime2'){
+            console.log('Going to ssh');
+            this.Uptime();
+            event.preventDefault();
+        } 
+        else{ this.runScript(this.dataEndPoints
+    [this.state.endPointIndex], 
+    this.state.selectedValue);
+    event.preventDefault();}
 };
 
-
-
+  handleSubmitRemote = (event) => {
+        this.setState({allData: ''});
+        console.log('A name was submitted: ', this.state);
+        this.Uptime();
+        event.preventDefault();
+};
 
     render() {
         const radioWeb = (
@@ -155,7 +177,7 @@ handleSubmit = (event) => {
                         type="radio" 
                         name="app-choice" 
                         data-endpoint="2"
-                        value="uptime" 
+                        value="uptime1" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
                         
