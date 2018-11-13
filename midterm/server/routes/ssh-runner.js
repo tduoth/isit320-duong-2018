@@ -37,7 +37,7 @@ const runCpuInfo = (hostAddress, response) => {
         port: 22,
         username: 'ubuntu',
         privateKey: require('fs').readFileSync(
-            process.env.HOME + '.ssh/ec2key'
+            process.env.HOME + '/.ssh/ec2key'
         )
     });
 };
@@ -48,7 +48,7 @@ router.get('/call-cpu-info', (request, response) => {
 });
 
 router.get('/run-uptime', (request, response) => {
-    runUptime(hostAddress, response);
+    runCpuInfo(hostAddress, response);
 });
 
 module.exports = router;
