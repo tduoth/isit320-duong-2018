@@ -149,7 +149,7 @@ handleSubmit = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="3"
+                        data-endpoint="2"
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
