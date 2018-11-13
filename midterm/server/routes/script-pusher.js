@@ -34,13 +34,13 @@ const scriptRunner = (script) => {
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.log('PUSH', data);
         });
 
         pushScript.stderr.on('data', data => {
             console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.error('PUSH', data);
         });
 
@@ -71,13 +71,13 @@ const runSystemTool = (script) => {
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.log('PUSH', data);
         });
 
         pushScript.stderr.on('data', data => {
             console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.error('PUSH', data);
         });
 
@@ -97,6 +97,43 @@ const runSystemTool = (script) => {
         });
     });
 };
+
+
+const runUptime = (script) => {
+    console.log("This is from runSystemTool");
+    return new Promise(function(resolve, reject) {
+
+        const pushScript = spawn('uptime' + script);
+
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+
 router.get('/version-check', function(request, response) {
     'use strict';
     VersionCheck()
@@ -130,6 +167,20 @@ router.get('/run-system-tool', (request, response) =>{
        allData= '';
   // console.log('QUERY IN RUN SYTEM TOOL', request.query);
     runSytemTool(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+router.get('/run-uptime-tool', (request, response) =>{
+    'use strict';
+       allData= '';
+  // console.log('QUERY IN RUN SYTEM TOOL', request.query);
+    runUptime(request.query.script)
     .then(result => {
         response.send(result);
     })
