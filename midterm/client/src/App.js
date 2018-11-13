@@ -202,7 +202,6 @@ handleSubmit = (event) => {
                 </header>
          <main>
                     <section>{radioWeb}</section>
-                    <section>{radioWeb2}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
