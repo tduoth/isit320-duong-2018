@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ElfHeader from './ElfHeader';
 
 class App extends Component {
     constructor(props) {
@@ -96,7 +97,7 @@ handleChange = (event) => {
 handleSubmit = (event) => {
     this.setState({allData: ''});
     console.log('A name was submitted: ', this.state);
-            if(this.state.selectedValue === 'uptime2'){
+            if(this.state.selectedValue === 'uptime1'){
             console.log('Going to ssh');
             this.Uptime();
             event.preventDefault();
@@ -147,7 +148,7 @@ handleSubmit = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="2"
+                        data-endpoint="1"
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
@@ -178,7 +179,7 @@ handleSubmit = (event) => {
                         name="app-choice" 
                         data-endpoint="2"
                         value="uptime1" 
-                        id="elf-radio-uptime" 
+                        id="elf-radio-uptime1" 
                         onChange={this.handleChange}/>
                         
                         <label for="elf-radio-uptime">Uptime</label>
@@ -194,11 +195,6 @@ handleSubmit = (event) => {
             </div>
             );
         
-        
-   
-        
-               
-        
         return (
             <div className="App">
                 <header className="App-header">
@@ -211,7 +207,6 @@ handleSubmit = (event) => {
                     <section>{radioWeb2}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
-                        <pre>{this.state.uptime}</pre>
                     </section>
                     <button onClick={this.queryServer}>Run Foo</button>
                     <pre>{this.state.State}</pre>
