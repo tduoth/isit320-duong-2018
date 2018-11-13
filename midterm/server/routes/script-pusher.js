@@ -61,6 +61,41 @@ const scriptRunner = (script) => {
     });
 };
 
+const runUptime = (script) => {
+        console.log("This is from runUptime");
+    return new Promise(function(resolve, reject) {
+        
+        const pushScript = spawn('uptime' + script);
+        
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+
 
 const runSystemTool = (script) => {
     console.log("This is from runSystemTool");
@@ -129,6 +164,20 @@ router.get('/run-system-tool', (request, response) =>{
        allData= '';
   // console.log('QUERY IN RUN SYTEM TOOL', request.query);
     runSytemTool(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+router.get('/run-uptime-tool', (request, response) =>{
+    'use strict';
+       allData= '';
+  // console.log('QUERY IN RUN UPTIME', request.query);
+    runUptime(request.query.script)
     .then(result => {
         response.send(result);
     })
