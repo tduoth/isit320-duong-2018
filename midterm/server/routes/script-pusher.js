@@ -65,7 +65,7 @@ const runUptime = (script) => {
         console.log("This is from runUptime");
     return new Promise(function(resolve, reject) {
         
-        const pushScript = spawn('uptime' + script);
+        conn.exec('uptime', function (err, stream) {
         
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
@@ -94,7 +94,7 @@ const runUptime = (script) => {
             });
         });
     });
-};
+
 
 
 const runSystemTool = (script) => {
