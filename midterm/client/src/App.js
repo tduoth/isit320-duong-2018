@@ -102,10 +102,10 @@ handleSubmit = (event) => {
             this.Uptime();
             event.preventDefault();
         } 
-        else{ this.runScript(this.dataEndPoints
-    [this.state.endPointIndex], 
-    this.state.selectedValue);
-    event.preventDefault();}
+        else{ 
+        this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+        event.preventDefault();
+        }
 };
 
   handleSubmitRemote = (event) => {
