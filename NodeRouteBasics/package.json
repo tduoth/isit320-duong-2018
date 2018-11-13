@@ -1,0 +1,4 @@
+"scripts": {
+  "start": "nodemon ./bin/www",
+  "start-service": "node ./bin/www",
+},
