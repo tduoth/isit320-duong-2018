@@ -129,6 +129,10 @@ router.get('/run-system-tool', (request, response) =>{
     });
 });
 
+router.get('/run-uptime', (request, response) => {
+    runUptime(hostAddress, response);
+});
+
 router.get('/foo', function(request, response) {
     var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
     console.log('Foo called:\n' + JSON.stringify(message, null, 4));
