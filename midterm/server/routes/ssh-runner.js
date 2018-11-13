@@ -42,10 +42,7 @@ const runCpuInfo = (hostAddress, response) => {
     });
 };
 
-router.get('/call-cpu-info', (request, response) => {
-    console.log("cpu info called");
-    runCpuInfo(hostAddress, response);
-});
+
 
 router.get('/run-uptime', (request, response) => {
     runCpuInfo(hostAddress, response);

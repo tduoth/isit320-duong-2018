@@ -162,13 +162,7 @@ handleSubmit = (event) => {
                        <button type="submit" className="btn btn-primary">Run System Script </button>
                    </div>
                    </fieldset>
-                </form>
-            </div>
-            );
-              const radioWeb2 = (
-            
-             <div className="container">
-                <form onSubmit={this.handleSubmitRemote}>
+       
                 <fieldset>
                 
                     <div className="elf-form-field" >
@@ -182,7 +176,7 @@ handleSubmit = (event) => {
                         id="elf-radio-uptime1" 
                         onChange={this.handleChange}/>
                         
-                        <label for="elf-radio-uptime">Uptime</label>
+                        <label for="elf-radio-uptime1">Uptime</label>
                         
                         
                     </div>
@@ -191,9 +185,12 @@ handleSubmit = (event) => {
                        <button type="submit" className="btn btn-primary">Run System Script </button>
                    </div>
                    </fieldset>
-                </form>
+                 </form>
             </div>
             );
+                
+            
+            
         
         return (
             <div className="App">
