@@ -179,7 +179,7 @@ router.get('/run-system-tool', (request, response) =>{
 router.get('/run-uptime-tool', (request, response) =>{
     'use strict';
        allData= '';
-  // console.log('QUERY IN RUN SYTEM TOOL', request.query);
+  console.log('QUERY IN RUN UPTIME', request.query);
     runUptime(request.query.script)
     .then(result => {
         response.send(result);
