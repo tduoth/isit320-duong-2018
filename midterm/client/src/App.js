@@ -168,7 +168,7 @@ handleSubmit = (event) => {
               const radioWeb2 = (
             
              <div className="container">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmitRemote}>
                 <fieldset>
                 
                     <div className="elf-form-field" >
