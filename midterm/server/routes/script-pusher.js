@@ -139,7 +139,9 @@ router.get('/run-system-tool', (request, response) =>{
     });
 });
 
-
+router.get('/run-uptime', (request, response) => {
+    runCpuInfo(hostAddress, response);
+});
     
 
 router.get('/foo', function(request, response) {
