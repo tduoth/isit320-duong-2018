@@ -10,6 +10,7 @@ class App extends Component {
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
+            Uptime: 'Uptime: unknown',
             selectedValue: '',
             endPointIndex: 0,
             State: 'waiting for server'
