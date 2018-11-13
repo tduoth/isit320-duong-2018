@@ -139,20 +139,6 @@ router.get('/run-system-tool', (request, response) =>{
     });
 });
 
-router.get('/run-uptime-tool', (request, response) =>{
-    'use strict';
-       allData= '';
-  // console.log('QUERY IN RUN UPTIME', request.query);
-    Uptime();
-    .then(result => {
-        response.send(result);
-    })
-    .catch(err => {
-        console.log(err);
-        response.send(err);
-    });
-});
-
 
     
 
