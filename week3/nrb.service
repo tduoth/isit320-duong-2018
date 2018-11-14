@@ -1,0 +1,19 @@
+[Unit]
+Description=Run NodeRouteBasics
+After=network.target
+
+[Service]
+# ExecStart=/usr/bin/node ./bin/www
+ExecStart=/home/ubuntu/npm/bin/npm run start-service
+WorkingDirectory=/home/ubuntu/bin/nrb
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nrb
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=production
+Environment=NRB_PORT=30029
+
+[Install]
+WantedBy=multi-user.target
