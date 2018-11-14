@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ElfHeader from './ElfHeader';
+
 
 class App extends Component {
     constructor(props) {
@@ -9,35 +9,17 @@ class App extends Component {
         this.dataEndPoints = [
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',  
-        '/script-pusher/run-uptime-tool?script='];
+ ];
         
         this.state = {
             allData: 'CPU: unknown',
             VersionCheck: 'Version: unknown',
             uptime: 'Uptime: unknown',
-            selectedValue: '',
-            endPointIndex: 0,
             State: 'waiting for server'
             
         };
     }
-    
- queryServer = () => {
-        const that = this;
-        fetch('/script-pusher/foo')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                that.setState(foo => (json));
-            })
-            .catch(function(ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
-            });
-            
-    };
-    
+
         Uptime = () => {
         const that = this;
         fetch('ssh-runner/run-uptime')
@@ -125,98 +107,52 @@ handleSubmit = (event) => {
         event.preventDefault();
 };
 
-    render() {
-        const radioWeb = (
-            <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                <fieldset>
-                
-                    <div className="elf-form-field" >
-                    <legend>Services</legend>
-                    
-                    
+    render()  {
+        
+        var bookRadios = (
+                    <div>
                         <input  
                         type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="CpuInfo" 
-                        id="elf-radio-cpu" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-cpu">CpuInfo</label>
-                        
-                    
-
-                        <input 
+                        name="book-radio"
+                        value="radioOne" 
+                        id="radio-one" 
+                        checked={this.state.checkedRadioButton ==="RadioOne"}
+                        onChange={this.handleRadioChange}
+                        />
+                    <label htmlFor="radio-one" className="book-radio">Book Radio 1</label>
+              <input  
                         type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="VersionCheck" 
-                        id="elf-radio-version" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-version"> Version Info </label>
+                        name="book-radio"
+                        value="radioTwo" 
+                        id="radio-two" 
+                        checked={this.state.checkedRadioButton ==="RadioTwo"}
+                        onChange={this.handleRadioChange}
+                        />
                         
-                        <input 
+               <input  
                         type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="uptime" 
-                        id="elf-radio-uptime" 
-                        onChange={this.handleChange}/>
-                        
-                        <label for="elf-radio-uptime">Uptime</label>
-                        
-                        
-                    </div>
-
-                   <div className="form-group">
-                       <button type="submit" className="btn btn-primary">Run System Script </button>
-                   </div>
-                   </fieldset>
-       
-                <fieldset>
-                
-                    <div className="elf-form-field" >
-                    <legend>Remote Services</legend>
-                    
-                        <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="uptime1" 
-                        id="elf-radio-uptime1" 
-                        onChange={this.handleChange}/>
-                        
-                        <label for="elf-radio-uptime1">Uptime</label>
-                        
-                        
-                    </div>
-
-                   <div className="form-group">
-                       <button type="submit" className="btn btn-primary1">Run System Script </button>
-                   </div>
-                   </fieldset>
-                 </form>
+                        name="book-radio"
+                        value="radioThree" 
+                        id="radio-three" 
+                        checked={this.state.checkedRadioButton ==="RadioThree"}
+                        onChange={this.handleRadioChange}
+                        /> 
             </div>
             );
                 
-            
-            
         
         return (
             <div className="App">
-            <ElfHeader/>
                 <header className="App-header">
                   <img src={logo} className="App-logo" alt="logo"/>
                   
 
                 </header>
          <main>
-                    <section>{radioWeb}</section>
+                  
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
-                    <button onClick={this.queryServer}>Run Foo</button>
-                    <pre>{this.state.State}</pre>
                     
 </main>
 
