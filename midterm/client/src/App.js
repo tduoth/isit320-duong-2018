@@ -100,11 +100,10 @@ handleSubmit = (event) => {
             //uptime console
      if(this.state.selectedValue === 'uptime'){
             console.log('Going to console');
-           // this.Uptime();
             event.preventDefault();
         }  
         //uptime for remote server
-    if(this.state.selectedValue === 'uptime1'){
+   else if(this.state.selectedValue === 'uptime1'){
           console.log('Going to ssh');
           this.Uptime();
            event.preventDefault();
