@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ElfHeader from './ElfHeader';
 
@@ -206,10 +205,7 @@ handleSubmit = (event) => {
             <div className="App">
             <ElfHeader/>
                 <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo"/>
-                  
-
-                </header>
+               </header>
          <main>
                     <section>{radioWeb}</section>
                     <section>
