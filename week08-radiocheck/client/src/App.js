@@ -107,6 +107,10 @@ handleSubmit = (event) => {
         event.preventDefault();
 };
 
+useRadioButtonSelection = () => {
+    this.setSate({message: "You've choosen" + this.state.chechedRadioButton});
+}; 
+
     render()  {
         
         var bookRadios = (
@@ -128,7 +132,7 @@ handleSubmit = (event) => {
                         checked={this.state.checkedRadioButton ==="RadioTwo"}
                         onChange={this.handleRadioChange}
                         />
-                        
+                  <label htmlFor="radio-two" className="book-radio">Book Radio 2</label>      
                <input  
                         type="radio" 
                         name="book-radio"
@@ -137,6 +141,7 @@ handleSubmit = (event) => {
                         checked={this.state.checkedRadioButton ==="RadioThree"}
                         onChange={this.handleRadioChange}
                         /> 
+                    <label htmlFor="radio-three" className="book-radio">Book Radio 3</label>
             </div>
             );
                 
