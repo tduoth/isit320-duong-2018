@@ -101,11 +101,7 @@ handleSubmit = (event) => {
      if(this.state.selectedValue === 'uptime'){
             console.log('Going to console');
             event.preventDefault();
-        }  
-     else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
-        event.preventDefault();
-        }
-        
+        } 
         //uptime for remote server
    if(this.state.selectedValue === 'uptime1'){
           console.log('Going to ssh');
@@ -163,17 +159,14 @@ handleSubmitRemote = (event) => {
                         onChange={this.handleChange}/>
                         
                         <label for="elf-radio-uptime">Uptime</label>
-                        
-                        
                     </div>
-
+                    
+                    
                    <div className="form-group">
                        <button type="submit" className="btn btn-primary">Run System Script </button>
                    </div>
                    </fieldset>
-
                 <fieldset>
-
                     <div className="elf-form-field" >
                     <legend>Remote Services</legend>
                     
