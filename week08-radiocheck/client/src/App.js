@@ -13,9 +13,10 @@ class App extends Component {
         
         this.state = {
             allData: 'CPU: unknown',
-            VersionCheck: 'Version: unknown',
             uptime: 'Uptime: unknown',
-            State: 'waiting for server'
+            chechedRadioButton: 'none',
+            message: 'none',
+       
             
         };
     }
@@ -105,6 +106,10 @@ handleSubmit = (event) => {
         console.log('A name was submitted: ', this.state);
         this.Uptime();
         event.preventDefault();
+};
+
+handleRadioChange = (event) => {
+    this.setState({chechedRadioButton: event.target.value});
 };
 
 useRadioButtonSelection = () => {
