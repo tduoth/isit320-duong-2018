@@ -97,16 +97,18 @@ handleChange = (event) => {
 handleSubmit = (event) => {
     this.setState({allData: ''});
     console.log('A name was submitted: ', this.state);
+            //uptime console
             if(this.state.selectedValue === 'uptime'){
             console.log('Going to console');
             this.Uptime();
             event.preventDefault();
         }  
-            if(this.state.selectedValue === 'uptime1'){
-            console.log('Going to ssh');
-            this.Uptime();
-            event.preventDefault();
-        } 
+        //uptime for remote server
+          //  if(this.state.selectedValue === 'uptime1'){
+         //   console.log('Going to ssh');
+          //  this.Uptime();
+         //   event.preventDefault();
+        //} 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
         }

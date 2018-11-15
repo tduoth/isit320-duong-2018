@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -108,6 +107,8 @@ handleSubmit = (event) => {
         event.preventDefault();
 };
 
+
+//radioButtons,
 handleRadioChange = (event) => {
     this.setState({chechedRadioButton: event.target.value});
 };
@@ -129,6 +130,8 @@ useRadioButtonSelection = () => {
                         onChange={this.handleRadioChange}
                         />
                     <label htmlFor="radio-one" className="book-radio">Book Radio 1</label>
+                    
+                    
               <input  
                         type="radio" 
                         name="book-radio"
@@ -137,7 +140,9 @@ useRadioButtonSelection = () => {
                         checked={this.state.checkedRadioButton ==="RadioTwo"}
                         onChange={this.handleRadioChange}
                         />
-                  <label htmlFor="radio-two" className="book-radio">Book Radio 2</label>      
+                  <label htmlFor="radio-two" className="book-radio">Book Radio 2</label>  
+                  
+                  
                <input  
                         type="radio" 
                         name="book-radio"
@@ -154,7 +159,7 @@ useRadioButtonSelection = () => {
         return (
             <div className="App">
                 <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo"/>
+
                   
 
                 </header>
