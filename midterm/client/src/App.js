@@ -100,7 +100,7 @@ handleSubmit = (event) => {
             //uptime console
      if(this.state.selectedValue === 'uptime'){
             console.log('Going to console');
-            this.Uptime();
+           // this.Uptime();
             event.preventDefault();
         }  
         //uptime for remote server
@@ -219,6 +219,7 @@ handleSubmitRemote = (event) => {
                </header>
          <main>
                     <section>{radioWeb}</section>
+                    <section>{radioWeb1}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
