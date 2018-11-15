@@ -104,11 +104,11 @@ handleSubmit = (event) => {
             event.preventDefault();
         }  
         //uptime for remote server
-    //if(this.state.selectedValue === 'uptime1'){
-         //  console.log('Going to ssh');
-        //   this.Uptime();
-        //    event.preventDefault();
-      //  } 
+    if(this.state.selectedValue === 'uptime1'){
+          console.log('Going to ssh');
+          this.Uptime();
+           event.preventDefault();
+       } 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
         }
@@ -117,17 +117,8 @@ handleSubmit = (event) => {
 handleSubmitRemote = (event) => {
         this.setState({allData: ''});
         console.log('A name was submitted: ', this.state);
-        //this.Uptime();
-        //event.preventDefault();
-        
-         if(this.state.selectedValue === 'uptime1'){
-           console.log('Going to ssh');
-           this.Uptime();
-            event.preventDefault();
-        } 
-        else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+        this.Uptime();
         event.preventDefault();
-        }
 };
 
     render() {
@@ -177,12 +168,7 @@ handleSubmitRemote = (event) => {
                        <button type="submit" className="btn btn-primary">Run System Script </button>
                    </div>
                    </fieldset>
- </form>
-            </div> );
-                   
-            const radioWeb1 = (          
-                   <div className="container1">
-                <form onSubmit={this.handleSubmitRemote}>
+
                 <fieldset>
 
                     <div className="elf-form-field" >
@@ -219,7 +205,6 @@ handleSubmitRemote = (event) => {
                </header>
          <main>
                     <section>{radioWeb}</section>
-                    <section>{radioWeb1}</section>
                     <section>
                         <pre>{this.state.allData}</pre>
                     </section>
