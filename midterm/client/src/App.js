@@ -102,8 +102,12 @@ handleSubmit = (event) => {
             console.log('Going to console');
             event.preventDefault();
         }  
+     else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+        event.preventDefault();
+        }
+        
         //uptime for remote server
-   else if(this.state.selectedValue === 'uptime1'){
+   if(this.state.selectedValue === 'uptime1'){
           console.log('Going to ssh');
           this.Uptime();
            event.preventDefault();
