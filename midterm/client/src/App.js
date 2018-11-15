@@ -69,7 +69,7 @@ runScript = (path, script) => {
             let info = '';
             if (json.result === 'error') {
                 info = json.error;
-            } else if (script === 'uptime') {
+            } else if (script === 'CpuInfo') {
                 var regex1 = RegExp('model name.*', 'g');
                 let array1 = regex1.exec(json.allData);
                 while (array1 !== null) {
