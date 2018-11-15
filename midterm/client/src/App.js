@@ -111,7 +111,7 @@ handleSubmit = (event) => {
        // } 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
-        }
+        };
 };
 
 handleSubmitRemote = (event) => {
@@ -127,7 +127,7 @@ handleSubmitRemote = (event) => {
         } 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
-        }
+        };
 };
 
     render() {
@@ -172,14 +172,15 @@ handleSubmitRemote = (event) => {
                         
                         
                     </div>
-
                    <div className="form-group">
                        <button type="submit" className="btn btn-primary">Run System Script </button>
                    </div>
                    </fieldset>
-       
-                <fieldset>
+                    </form>
                 
+
+                <fieldset>
+                <form onSubmit={this.handleSubmitRemote}>
                     <div className="elf-form-field" >
                     <legend>Remote Services</legend>
                     
@@ -193,19 +194,15 @@ handleSubmitRemote = (event) => {
                         
                         <label for="elf-radio-uptime1">Uptime</label>
                         
-                        
                     </div>
-
                    <div className="form-group">
                        <button type="submit" className="btn btn-primary1">Run System Script </button>
                    </div>
-                   </fieldset>
-                 </form>
-            </div>
+                 
+                 </form>  
+                 </fieldset>
             );
-                
-            
-            
+          
         
         return (
             <div className="App">
@@ -224,7 +221,7 @@ handleSubmitRemote = (event) => {
 
             </div>
         );
-    }
+ }   
 }
 
 export default App;
