@@ -90,11 +90,7 @@ handleChange = (event) => {
     const selectedValue = event.target.value;
     const endPointIndex = event.target.getAttribute('data-endpoint');
     console.log('HANDLE CHANGE', selectedValue);
-    this.setState({
-        ...this.state,
-        selectedValue: selectedValue,
-        endPointIndex: endPointIndex
-    });
+    this.setState({...this.state, selectedValue: selectedValue, endPointIndex: endPointIndex});
 
 };
 
@@ -111,13 +107,12 @@ handleSubmit = (event) => {
             this.Uptime();
             event.preventDefault();
         } 
-        else{ 
-        this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
+        else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
         }
 };
 
-  handleSubmitRemote = (event) => {
+handleSubmitRemote = (event) => {
         this.setState({allData: ''});
         console.log('A name was submitted: ', this.state);
         this.Uptime();
