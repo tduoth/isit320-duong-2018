@@ -6,7 +6,7 @@ const hostAddress = '52.32.223.69';
 
 let allData = '';
 
-const runCpuInfo = (hostAddress, response) => {
+const runUptime = (hostAddress, response) => {
     var conn = new Client();
     conn.on('ready', function () {
         console.log('Client :: ready');
@@ -45,7 +45,8 @@ const runCpuInfo = (hostAddress, response) => {
 
 
 router.get('/run-uptime', (request, response) => {
-    runCpuInfo(hostAddress, response);
+    allData = '';
+    runUptime(hostAddress, response);
 });
 
 module.exports = router;
