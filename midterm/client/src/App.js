@@ -17,7 +17,6 @@ class App extends Component {
             selectedValue: '',
             endPointIndex: 0,
             State: 'waiting for server'
-            
         };
     }
     
@@ -202,10 +201,10 @@ handleSubmitRemote = (event) => {
          <main>
                     <section>{radioWeb}</section>
                     <section>
-                        <pre>{this.state.allData}</pre>
+                        <p>{this.state.allData}</p>
                     </section>
                     <button onClick={this.queryServer}>Run Foo</button>
-                    <pre>{this.state.State}</pre>
+                    <p>{this.state.State}</p>
                     
 </main>
 

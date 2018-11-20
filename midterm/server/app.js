@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+//this is where I already add the scriptPusher
 app.use('/script-pusher', scriptPusher);
 app.use('/ssh-runner', sshRunner);
 
