@@ -158,7 +158,7 @@ handleSubmitRemote = (event) => {
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
                         
-                        <label for="elf-radio-uptime">Uptime</label>
+                        <label htmlFor="elf-radio-uptime">Uptime</label>
                     </div>
                     
                     
@@ -178,7 +178,7 @@ handleSubmitRemote = (event) => {
                         id="elf-radio-uptime1" 
                         onChange={this.handleChange}/>
                         
-                        <label for="elf-radio-uptime1">Uptime</label>
+                        <label htmlFor="elf-radio-uptime1">Uptime</label>
                         
                         
                     </div>
