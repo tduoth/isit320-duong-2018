@@ -7,12 +7,11 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//I added this 
+//I added this and app.use is bellow
 var scriptPusher = require('./routes/script-pusher');
-app.use('/script-pusher', scriptPusher);
 //and this too
 var sshRunner = require('./routes/ssh-runner');
-app.use('/ssh-runner', sshRunner);
+
 
 var app = express();
 
@@ -28,8 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
+//added this for midterm
+app.use('/script-pusher', scriptPusher);
+app.use('/ssh-runner', sshRunner);
 
 
 
