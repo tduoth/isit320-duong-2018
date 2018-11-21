@@ -38,7 +38,7 @@ const runUptime = (hostAddress, response) => {
         port: 22,
         username: 'ubuntu',
         privateKey: require('fs').readFileSync(
-            process.env.HOME + '/.ssh/ec2key'
+            process.env.HOME + '.ssh/ec2key'
         )
     });
 };
