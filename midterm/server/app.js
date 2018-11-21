@@ -6,8 +6,13 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+//I added this 
 var scriptPusher = require('./routes/script-pusher');
+app.use('/script-pusher', scriptPusher);
+//and this too
 var sshRunner = require('./routes/ssh-runner');
+app.use('/ssh-runner', sshRunner);
 
 var app = express();
 
@@ -23,9 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//this is where I already add the scriptPusher
-app.use('/script-pusher', scriptPusher);
-app.use('/ssh-runner', sshRunner);
+
+
+
 
 
 // catch 404 and forward to error handler

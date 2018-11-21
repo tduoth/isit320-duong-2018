@@ -6,5 +6,7 @@
 **/coverage/**
 **/public/static**
 **/build/**
-service-worker.js
-precache-manifest.*.js
+**/static/**
+**/manifest.json
+**/precache-manifest.*.js
+**/service-worker.js

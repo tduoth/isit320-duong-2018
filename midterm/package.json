@@ -8,7 +8,8 @@
         "start": "concurrently 'npm run server' 'npm run client'",
         "server": "babel-node server/bin/www",
         "client": "babel-node start-client.js",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "start-service": "node ./bin/www"
     },
     "keywords": [],
     "author": "",
