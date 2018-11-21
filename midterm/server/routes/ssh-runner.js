@@ -65,15 +65,8 @@ router.use(check);
 
 
 router.get('/run-uptime', function(request, response) {
-    console.log('called in ssh-runner', hostAddress);
-    runUptime()
-        .then((result) => {
-            runUptime(result.hostName, result.identityFile, response);
-        })
-        .catch((err) => {
-            response.send(err);
-        });
-
+    allData = '';
+    runUptime(hostAddress, response);
 });
 
 module.exports = router;
