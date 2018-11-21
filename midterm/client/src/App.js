@@ -201,7 +201,7 @@ handleSubmitRemote = (event) => {
          <main>
                     <section>{radioWeb}</section>
                     <section>
-                        <p>{this.state.allData}</p>
+                        <pre>{this.state.allData}</pre>
                     </section>
                     <button onClick={this.queryServer}>Run Foo</button>
                     <p>{this.state.State}</p>

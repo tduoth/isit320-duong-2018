@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Client = require('ssh2').Client;
+const elfUtils = require('elven-code').elfUtils;
 
 const hostAddress = '52.32.223.69';
 
@@ -42,11 +43,37 @@ const runUptime = (hostAddress, response) => {
     });
 };
 
+const check = (request, response, next) => {
+    console.log('REQUEST CHECK CALLED', request.query);
+    const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
+    if (request.query.script) {
+        console.log('INSIDE REQUEST SCRIPT');
+        if (!validOptions.includes(request.query.script)) {
+            console.log('INSIDE REQUEST INVALID OPTION');
+            response.send({
+                result: 'error',
+                error: 'Invalid Option: ' + request.query.script,
+                script: request.query.script
+            });
+            return;
+        }
+    }
+    next();
+};
+
+router.use(check);
 
 
-router.get('/run-uptime', (request, response) => {
-    allData = '';
-    runUptime(hostAddress, response);
+router.get('/uptime', function(request, response) {
+    console.log('called in ssh-runner', hostAddress);
+    runUptime()
+        .then((result) => {
+            runUptime(result.hostName, result.identityFile, response);
+        })
+        .catch((err) => {
+            response.send(err);
+        });
+
 });
 
 module.exports = router;
