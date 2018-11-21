@@ -64,7 +64,7 @@ const check = (request, response, next) => {
 router.use(check);
 
 
-router.get('/uptime', function(request, response) {
+router.get('/run-uptime', function(request, response) {
     console.log('called in ssh-runner', hostAddress);
     runUptime()
         .then((result) => {
