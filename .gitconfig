@@ -1,0 +1,12 @@
+[alia]
+   co = checkout
+   br = branch
+   ci = commit  
+   st = statucs
+   last = log -1 HEAD
+   tag1 = tag -n1
+[diff]
+   tool = meld
+[user]
+  email = tduoth@gmail.com
+  name = Thanh at School
