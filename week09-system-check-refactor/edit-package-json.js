@@ -27,7 +27,7 @@ const packageJsonClient = () => {
     elfUtils.readFile(fileName)
         .then((json) => {
             const packageJson = JSON.parse(json.result);
-            packageJson.proxy = "http://localhost:30026";
+            packageJson.proxy = "http://localhost:30035";
             return packageJson;
         })
         .then((json) => {

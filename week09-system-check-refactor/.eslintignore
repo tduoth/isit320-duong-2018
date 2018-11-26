@@ -4,3 +4,9 @@
 **/node_modules/**
 **/bower_components/**
 **/coverage/**
+**/public/static**
+**/build/**
+**/static/**
+**/manifest.json
+**/precache-manifest.*.js
+**/service-worker.js

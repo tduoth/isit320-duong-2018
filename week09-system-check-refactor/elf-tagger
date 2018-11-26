@@ -1,5 +1,10 @@
 #! /usr/bin/env bash
 
+if [[ -z $1 ]]; then
+    echo -e "You must pass in one parameter"
+    exit
+fi
+
 if [[ -z $2 ]]; then
     echo -e "You must pass in a commit message and the project name"
     exit
@@ -25,28 +30,20 @@ function git_branch {
     echo "$commit"
   fi
 }
-
-git_branch
-
-OLD_TAG_VERSION=`git tag --sort=taggerdate | tail -1|  sed -En "s/v(.*)/\1/p"`
-
+OLD_TAG_VERSION=`git tag --sort=taggerdate | tail -1 |  sed -En "s/v(.*)/\1/p"`
 TAG_VERSION=v`semver-inc -p $OLD_TAG_VERSION`
-
-BRANCH = `git_branch`
-
+BRANCH=`git_branch`
 TAG_STRING="$1 for $2 on branch `git_branch` with tag ${TAG_VERSION}."
 echo $TAG_STRING
 
-
 function push_tag() {
+  git add . 
   git status
-  git add .
   git commit -m "${TAG_STRING} $NOW"
   git push --set-upstream origin ${BRANCH}
-  
+
   git tag -a "${TAG_VERSION}" -m "${TAG_STRING}"
   git push origin "${TAG_VERSION}"
 }
 
 push_tag
-
