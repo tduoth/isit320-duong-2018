@@ -1,40 +1,56 @@
+/* eslint-disable semi */
 var express = require('express');
 var router = express.Router();
-
-/* GET home page. */
-
 const spawn = require('child_process').spawn;
 
-let allData = "";
+let allData = '';
+let currentVersion = '';
 
-const copyFile = () => {
 
-    return new Promise(function (resolve, reject) {
+const check = (request, response, next) => {
+    console.log('REQUEST CHECK CALLED', request.query);
+    const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
+    if (request.query.script) {
+        console.log('INSIDE REQUEST SCRIPT');
+        if (!validOptions.includes(request.query.script)) {
+            console.log('INSIDE REQUEST INVALID OPTION');
+            response.send({result: 'error', error: 'Invalid Option: ' + request.query.script, script: request.query.script});
+            return;
+        }
+    }
+    next();
+};
 
-        console.log("Copy to EC2", process.env.SETUP_LINUXBOX);
+router.use(check);
 
-        const pushScript = spawn('scp', [process.env.SETUP_LINUXBOX + '/CpuInfo', 'ec2-bc:/home/ubuntu']);
+const scriptRunner = (script) => {
+    console.log("This is from scriptRunner");
+    return new Promise(function(resolve, reject) {
+        console.log('Run CPU info', process.env.SETUP_LINUXBOX);
 
-        pushScript.stdout.on('data', (data) => {
+        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/' + script);
+
+        pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.log('PUSH', data);
         });
 
-        pushScript.stderr.on('data', (data) => {
+        pushScript.stderr.on('data', data => {
             console.log(`child stderr:\n${data}`);
-            allData += 'PUSH-SCRIPT: ' + data;
+            allData += data;
             //console.error('PUSH', data);
         });
 
-        pushScript.on('close', (code) => {
+        pushScript.on('close', code => {
             resolve({
                 result: 'success',
+                allData: allData,
                 code: code
             });
         });
 
-        pushScript.on('error', (code) => {
+        pushScript.on('error', code => {
             reject({
                 result: 'error',
                 code: code
@@ -43,18 +59,139 @@ const copyFile = () => {
     });
 };
 
-router.get('/copy-file', function(request, response) { 'use strict';
-    //response.send(Result: 'success'});
 
-    copyFile()
-        .then((result) => {
-            console.log("This is from the server: " + JSON.stringify(result, null, 4));
+
+const runSystemTool = (script) => {
+    console.log("This is from runSystemTool");
+    return new Promise(function(resolve, reject) {
+
+        const pushScript = spawn('/usr/bin/' + script);
+
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+
+
+const runUptime = (script) => {
+    console.log("This is from runUptime");
+    return new Promise(function(resolve, reject) {
+
+        const pushScript = spawn(script + '');
+
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+
+router.get('/version-check', function(request, response) {
+    'use strict';
+    VersionCheck()
+        .then(result => {
+            console.log(JSON.stringify(result, null, 4));
             response.send(result);
         })
-        .catch((err) => {
+        .catch(err => {
             console.log(err);
             response.send(err);
-        })
+        });
+});
+
+
+router.get('/run-script', (request, response) => {
+    'use strict';
+    allData = "",
+   // console.log('QUERY', request.query);
+    scriptRunner(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+router.get('/run-system-tool', (request, response) =>{
+    'use strict';
+       allData= '';
+  // console.log('QUERY IN RUN SYTEM TOOL', request.query);
+    runSytemTool(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+router.get('/run-uptime-tool', (request, response) =>{
+    'use strict';
+       allData= '';
+  console.log('QUERY IN RUN UPTIME', request.query);
+    runUptime(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+router.get('/foo', function(request, response) {
+    var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
+    console.log('Foo called:\n' + JSON.stringify(message, null, 4));
+    response.send(message);
 });
 
 module.exports = router;
