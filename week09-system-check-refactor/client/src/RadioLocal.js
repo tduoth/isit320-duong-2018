@@ -15,6 +15,9 @@ class RadioLocal extends Component {
         
         this.state = {
             allData:'',
+             uptime: '',
+            selectedValue: '',
+            endPointIndex: 0,
             
         };
     }
@@ -117,11 +120,12 @@ handleSubmit = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="2"
+                        data-endpoint="0"
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-uptime">Uptime</label>
+                        <label htmlFor="elf-radio-uptime">uptime</label>
+                        
                     </div>
                     
                     
