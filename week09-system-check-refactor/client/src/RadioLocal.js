@@ -99,7 +99,7 @@ handleSubmit = (event) => {
                      <input  
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="0"
+                        data-endpoint="2"
                         value="hostname" 
                         id="elf-radio-hostname" 
                         onChange={this.handleChange}/>
