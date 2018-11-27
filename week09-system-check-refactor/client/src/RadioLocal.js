@@ -11,8 +11,6 @@ class RadioLocal extends Component {
         '/script-pusher/run-system-tool?script=',  
         '/script-pusher/get-host-name?script=',
         '/script-pusher/run-uptime-tool?script=',
-         '/ssh-runner/run-script?script=',
-        '/ssh-runner/run-system-tool?script='
         ];
         
         this.state = {
@@ -21,20 +19,7 @@ class RadioLocal extends Component {
         };
     }
 
-        Uptime = () => {
-        const that = this;
-        fetch('ssh-runner/run-uptime')
-            .then(function (response) {return response.json();})
-            .then(function (json) {
-                console.log('JSON allData from server:', json.allData);
-                that.setState({allData: json.allData});
-            })
-            .catch(function (ex) {
-                console.log('parsing failed, error on server, URL bad, network down, or similar');
-                console.log(JSON.stringify(ex, null, 4));
-            });
-            
-        };
+
         
 runScript = (path, script) => {
     const that = this;
@@ -86,12 +71,6 @@ handleSubmit = (event) => {
             console.log('Going to console');
             event.preventDefault();
         } 
-        //uptime for remote server
-   if(this.state.selectedValue === 'uptime1'){
-          console.log('Going to ssh');
-          this.Uptime();
-           event.preventDefault();
-       } 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
         }
