@@ -16,9 +16,6 @@ class App extends Component {
                     <RadioLocal/>                             
                                          
                 </section>         
-
-                <button onClick={this.runFoo}>Run Foo</button>
-                <p>Foo: {this.state.foo}</p>                  
             </main>                                           
         </div>                                                
     );                                                        
