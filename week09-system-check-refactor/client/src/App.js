@@ -91,117 +91,19 @@ handleSubmitRemote = (event) => {
 };
 
     render() {
-        const radioWeb = (
-            <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                <fieldset>
-                
-                    <div className="elf-form-field" >
-                    <legend>Services</legend>
-                    
-                    
-                        <input  
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="CpuInfo" 
-                        id="elf-radio-cpu" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-cpu">CpuInfo</label>
-                        
-                    
-
-                        <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="VersionCheck" 
-                        id="elf-radio-version" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-version"> Version Info </label>
-                        
-                                 <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="hostname" 
-                        id="elf-radio-uptime" 
-                        onChange={this.handleChange}/>
-                        
-                        <label htmlFor="elf-radio-hostname">Host Name</label>
-                  
-                        
-                        <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="uptime" 
-                        id="elf-radio-uptime" 
-                        onChange={this.handleChange}/>
-                        
-                        <label htmlFor="elf-radio-uptime">Uptime</label>
-                    </div>
-                    
-                    
-                   <div className="form-group">
-                       <button type="submit" className="btn btn-primary">Run System Script </button>
-                   </div>
-                   </fieldset>
-                <fieldset>
-                    <div className="elf-form-field" >
-                    <legend>Remote Services</legend>
-                    
-                            <input  
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="CpuInfo1" 
-                        id="elf-radio-remotecpu" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-remotecpu">CpuInfo</label>
-                    
-                        <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="uptime1" 
-                        id="elf-radio-uptime1" 
-                        onChange={this.handleChange}/>
-                        
-                        <label htmlFor="elf-radio-uptime1">Uptime</label>
-                        
-                        
-                    </div>
-
-                   <div className="form-group">
-                       <button type="submit" className="btn btn-primary1">Run System Script </button>
-                   </div>
-                   </fieldset>
-                 </form>
-            </div>
-            );
-                
-            
-            
-        
-        return (
-            <div className="App">
-            <ElfHeader/>
-                <header className="App-header">
-               </header>
-         <main>
-                    <section>{radioWeb}</section>
-                    <section>
-                        <pre>{this.state.allData}</pre>
-                    </section>
-                    <button onClick={this.queryServer}>Run Foo</button>
-                    <p>{this.state.State}</p>
-                    
-</main>
-
-            </div>
-        );
-    }
+ return (                                                  
+        <div className="App">                                 
+            <ElfHeader />                                     
+            <main>                                            
+                <section>                                     
+                    <RadioLocal />                              
+                    <RadioRemote/>                            
+                </section>                                    
+                <button onClick={this.runFoo}>Run Foo</button>
+                <p>Foo: {this.state.foo}</p>                  
+            </main>                                           
+        </div>                                                
+    );                                                        
+}        
 }
-
 export default App;
