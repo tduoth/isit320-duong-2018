@@ -101,7 +101,7 @@ handleSubmit = (event) => {
 
 
         render() {
-     const radioRemote = (
+     const radioLocal = (
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
                 <fieldset>
@@ -154,7 +154,7 @@ handleSubmit = (event) => {
             <ElfHeader/>                                     
             <main>                                            
                 <section>                                     
-                    {radioLocal}                              
+                    <pre>{radioLocal}</pre>                              
                                          
                 </section>                                    
                 <button onClick={this.runFoo}>Run Foo</button>
