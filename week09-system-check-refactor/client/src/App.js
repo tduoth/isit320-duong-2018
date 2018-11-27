@@ -161,9 +161,12 @@ handleSubmit = (event) => {
             <ElfHeader/>                                     
             <main>                                            
                 <section>                                     
-                    <pre>{radioLocal}</pre>                              
+                    {radioLocal}                              
                                          
-                </section>                                    
+                </section>         
+                     <section>
+                        <pre>{this.state.allData}</pre>
+                    </section>
                 <button onClick={this.runFoo}>Run Foo</button>
                 <p>Foo: {this.state.foo}</p>                  
             </main>                                           
