@@ -8,7 +8,10 @@ class App extends Component {
         this.dataEndPoints = [
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',  
-        '/script-pusher/run-uptime-tool?script='];
+        '/script-pusher/run-uptime-tool?script=',
+        '/ssh-runner/run-script?script=',
+        '/ssh-runner/run-system-tool?script='
+        ];
         
         this.state = {
             allData: 'CPU: unknown',
@@ -149,6 +152,17 @@ handleSubmitRemote = (event) => {
                         onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-version"> Version Info </label>
                         
+                                 <input 
+                        type="radio" 
+                        name="app-choice" 
+                        data-endpoint="2"
+                        value="hostname" 
+                        id="elf-radio-hostname" 
+                        onChange={this.handleChange}/>
+                        
+                        <label htmlFor="elf-radio-hostname">Host Name</label>
+                  
+                        
                         <input 
                         type="radio" 
                         name="app-choice" 
@@ -168,6 +182,15 @@ handleSubmitRemote = (event) => {
                 <fieldset>
                     <div className="elf-form-field" >
                     <legend>Remote Services</legend>
+                    
+                            <input  
+                        type="radio" 
+                        name="app-choice" 
+                        data-endpoint="0"
+                        value="CpuInfo1" 
+                        id="elf-radio-remotecpu" 
+                        onChange={this.handleChange}/>
+                        <label htmlFor="elf-radio-remotecpu">CpuInfo</label>
                     
                         <input 
                         type="radio" 
