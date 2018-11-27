@@ -112,12 +112,12 @@ handleSubmit = (event) => {
                         value="VersionCheck" 
                         id="elf-radio-version" 
                         onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-version">Version Info </label>
+                        <label htmlFor="elf-radio-version">Version Info</label>
                         
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="0"
+                        data-endpoint="2"
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
