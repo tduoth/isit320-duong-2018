@@ -9,10 +9,6 @@ class RadioLocal extends Component {
      <div className="App">                                 
                                         
             <main>                                            
-                <section>                                     
-                    {radioLocal}                              
-                                         
-                </section>         
                      <section>
                         <pre>{this.state.allData}</pre>
                     </section>
