@@ -1,9 +1,8 @@
 /* eslint-disable semi */
 var express = require('express');
 var router = express.Router();
-
-
 const spawn = require('child_process').spawn;
+
 
 let allData = '';
 let currentVersion = '';
@@ -11,12 +10,15 @@ let currentVersion = '';
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
-    const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
+    const validOptions = ['CpuInfo', 'VersionCheck', 'hostname', 'uptime'];
     if (request.query.script) {
         console.log('INSIDE REQUEST SCRIPT');
         if (!validOptions.includes(request.query.script)) {
             console.log('INSIDE REQUEST INVALID OPTION');
-            response.send({result: 'error', error: 'Invalid Option: ' + request.query.script, script: request.query.script});
+            response.send({result: 'error', 
+            error: 'Invalid Option: ' + request.query.script, 
+            script: request.query.script
+            });
             return;
         }
     }
@@ -98,6 +100,44 @@ const runSystemTool = (script) => {
     });
 };
 
+const runSystemToolParams = (path, script, params) => {
+    return new Promise(function(resolve, reject) {
+        let allData = '';
+        
+        console.log('System TOOL ENVIRONMENT', process.env.bash)
+
+        const pushScript = spawn(path+ script, params);
+
+        pushScript.stdout.on('data', data => {
+            //console.log(`child stdout:\n${data}`);
+            allData += data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+           // console.log(`child stderr:\n${data}`);
+            allData += data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+
+
 
 const runUptime = (script) => {
     console.log("This is from runUptime");
@@ -134,18 +174,8 @@ const runUptime = (script) => {
     });
 };
 
-router.get('/version-check', function(request, response) {
-    'use strict';
-    VersionCheck()
-        .then(result => {
-            console.log(JSON.stringify(result, null, 4));
-            response.send(result);
-        })
-        .catch(err => {
-            console.log(err);
-            response.send(err);
-        });
-});
+
+
 
 
 router.get('/run-script', (request, response) => {
@@ -181,6 +211,19 @@ router.get('/run-uptime-tool', (request, response) =>{
        allData= '';
   console.log('QUERY IN RUN UPTIME', request.query);
     runUptime(request.query.script)
+    .then(result => {
+        response.send(result);
+    })
+    .catch(err => {
+        console.log(err);
+        response.send(err);
+    });
+});
+
+router.get('/get-host-name', (request, response) => {
+    'use strict';
+    console.log('GET HOST NAME CALLED');
+    runSytemToolParams('/bin', 'cat', ['/etc/hostname'])
     .then(result => {
         response.send(result);
     })
