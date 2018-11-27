@@ -100,7 +100,6 @@ handleSubmit = (event) => {
 };
 
 
-    render() {
         render() {
      const radioRemote = (
             <div className="container">
