@@ -8,7 +8,7 @@ class App extends Component {
         this.dataEndPoints = [
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',  
-        '/script-pusher/get-host-name?scrip=',
+        '/script-pusher/get-host-name?script=',
         '/script-pusher/run-uptime-tool?script=',
         '/ssh-runner/run-script?script=',
         '/ssh-runner/run-system-tool?script='
