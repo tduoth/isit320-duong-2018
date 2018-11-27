@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ElfHeader from './ElfHeader';
+import RadioLocal from './RadioLocal';
 
 
 class App extends Component {
@@ -161,7 +162,7 @@ handleSubmit = (event) => {
             <ElfHeader/>                                     
             <main>                                            
                 <section>                                     
-                    {radioLocal}                              
+                    <RadioLocal/>                             
                                          
                 </section>         
                      <section>
