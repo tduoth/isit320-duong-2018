@@ -157,7 +157,10 @@ handleSubmit = (event) => {
  return(
      <div className="App">                                 
                                         
-            <main>                                            
+            <main>          
+            <section>
+            {radioLocal}
+            </section>
                      <section>
                         <pre>{this.state.allData}</pre>
                     </section>
