@@ -8,7 +8,9 @@ class App extends Component {
         this.dataEndPoints = [
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',  
-        '/script-pusher/run-uptime-tool?script='];
+        '/script-pusher/run-uptime-tool?script=',
+         '/ssh-runner/run-script?script=',
+        '/ssh-runner/run-system-tool?script='];
         
         this.state = {
             allData: 'CPU: unknown',

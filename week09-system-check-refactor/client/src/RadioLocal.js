@@ -66,7 +66,7 @@ class RadioLocal extends Component {
             </div>
             );
             
-    
+    return;
         }
     }
 
