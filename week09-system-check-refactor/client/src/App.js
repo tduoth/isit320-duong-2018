@@ -117,9 +117,16 @@ handleSubmit = (event) => {
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
                         onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-cpu">CpuInfo</label>
+                        <label htmlFor="elf-radio-cpu">Cpu Info</label>
                         
-                    
+                     <input  
+                        type="radio" 
+                        name="app-choice" 
+                        data-endpoint="0"
+                        value="hostname" 
+                        id="elf-radio-hostname" 
+                        onChange={this.handleChange}/>
+                        <label htmlFor="elf-radio-hotname">Host Name</label>
 
                         <input 
                         type="radio" 
