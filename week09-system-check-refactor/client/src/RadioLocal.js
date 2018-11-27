@@ -10,7 +10,7 @@ class RadioLocal extends Component {
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',  
         '/script-pusher/get-host-name?script=',
-        '/script-pusher/run-uptime-tool?script=',
+        '/script-pusher/run-uptime-tool?script='
         ];
         
         this.state = {
@@ -84,7 +84,7 @@ handleSubmit = (event) => {
                 <fieldset>
                 
                     <div className="elf-form-field" >
-                    <legend>Services</legend>
+                    <legend>Local Services</legend>
                     
                     
                         <input  
@@ -121,7 +121,6 @@ handleSubmit = (event) => {
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
-                        
                         <label htmlFor="elf-radio-uptime">Uptime</label>
                     </div>
                     
