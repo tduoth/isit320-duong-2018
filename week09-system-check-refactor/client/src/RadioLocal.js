@@ -9,9 +9,7 @@ class App extends Component {
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',  
         '/script-pusher/get-host-name?script=',
-        '/script-pusher/run-uptime-tool?script=',
-        '/ssh-runner/run-script?script=',
-        '/ssh-runner/run-system-tool?script='
+        '/script-pusher/run-uptime-tool?script='
         ];
         
         this.state = {
@@ -72,22 +70,9 @@ handleSubmit = (event) => {
             console.log('Going to console');
             event.preventDefault();
         } 
-        //uptime for remote server
-   if(this.state.selectedValue === 'uptime1'){
-          console.log('Going to ssh');
-          this.Uptime();
-           event.preventDefault();
-       } 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
         }
-};
-
-handleSubmitRemote = (event) => {
-        this.setState({allData: ''});
-        console.log('A name was submitted: ', this.state);
-        this.Uptime();
-        event.preventDefault();
 };
 
  render() {
