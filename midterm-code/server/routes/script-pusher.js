@@ -103,7 +103,7 @@ const runUptime = (script) => {
     console.log("This is from runUptime");
     return new Promise(function(resolve, reject) {
 
-        const pushScript = spawn(script);
+        const pushScript = spawn(script + '');
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
