@@ -169,9 +169,9 @@ router.get('/call-cpu-info', (request, response) => {
 
 router.get('/uptime', function(request, response) {
     console.log('run-get-started called in ssh-runner', hostAddress);
-    ec2Uptime()
+    runUptime()
         .then((result) => {
-            runUptime(result.hostName, result.identityFile, response);
+           ec2Uptime(result.hostName, result.identityFile, response);
         })
         .catch((err) => {
             response.send(err);
