@@ -15,9 +15,9 @@ class RadioLocal extends Component {
         
         this.state = {
             allData:'',
-             uptime: '',
+            uptime: '',
             selectedValue: '',
-            endPointIndex: 0,
+            endPointIndex: 0
             
         };
     }
@@ -74,6 +74,11 @@ handleSubmit = (event) => {
             console.log('Going to console');
             event.preventDefault();
         } 
+           if(this.state.selectedValue === 'uptime1'){
+          console.log('Going to ssh');
+          this.Uptime();
+           event.preventDefault();
+       } 
         else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
         event.preventDefault();
         }
