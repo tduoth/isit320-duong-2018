@@ -169,7 +169,7 @@ router.get('/call-cpu-info', (request, response) => {
 
 router.get('/uptime', function(request, response) {
     console.log('run-get-started called in ssh-runner', hostAddress);
-    getSshIp()
+    ec2Uptime()
         .then((result) => {
             runUptime(result.hostName, result.identityFile, response);
         })
