@@ -8,9 +8,7 @@ class RadioLocal extends Component {
         super(props);
         this.dataEndPoints = [
         '/script-pusher/run-script?script=', 
-        '/script-pusher/run-system-tool?script=',  
-        '/script-pusher/get-host-name?script=',
-        '/script-pusher/run-uptime-tool?script='
+        '/script-pusher/run-system-tool?script='
         ];
         
         this.state = {
