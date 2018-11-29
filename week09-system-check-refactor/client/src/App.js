@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ElfHeader from './ElfHeader';
 import RadioLocal from './RadioLocal';
+import RadioRemote from './RadioRemote';
 
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
             <ElfHeader/>                                     
             <main>                                            
                 <section>                                     
-                    <RadioLocal/>                             
+                    <RadioLocal/>    
+                    <RadioRemote/>
                                          
                 </section>         
             </main>                                           
