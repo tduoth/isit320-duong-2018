@@ -10,7 +10,7 @@ class RadioRemote extends Component {
         '/ssh-runner/run-script?script=', 
         '/ssh-runner/run-system-tool?script=',  
         '/ssh-runner/get-host-name?script=',
-        '/ssh-runner/run-uptime-tool?script='
+        '/ssh-runner/uptime?script='
         ];
         
         this.state = {
