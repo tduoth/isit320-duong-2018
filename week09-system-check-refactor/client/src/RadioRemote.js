@@ -142,11 +142,11 @@ handleSubmitRemote = (event) => {
                         <input 
                         type="radio" 
                         name="app-choice" 
-                        data-endpoint="2"
+                        data-endpoint="3"
                         value="uptime" 
                         id="elf-radio-uptime" 
                         onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-uptime">uptime</label>
+                        <label htmlFor="elf-radio-uptime">Remote Uptime</label>
                         
                     </div>
                     
