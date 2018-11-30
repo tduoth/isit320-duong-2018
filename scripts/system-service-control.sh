@@ -1,4 +1,5 @@
 #!/bin/bash
+# /thanh duong
 
 function banner {
     echo ' '

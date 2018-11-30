@@ -12,6 +12,10 @@ NC='\033[0m' # No Color
 # Then run: source setup-environment-service
 export SYSTEMD_PROJECT_NAME=midterm
 export SYSTEMD_DESCRIPTION="Midterm Service"
+export PORT=30025
+export SERVER_PORT=30026
+export ELF_SCREF_PORT=30030
+export ELF_SYSTEM_CHECK_PORT=30034
 export SYSTEMD_PORT="MIDTERM_PORT=30035"
 
 

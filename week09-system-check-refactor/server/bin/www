@@ -12,7 +12,9 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.MIDTERM_PORT || '30035');
+//var port = normalizePort(process.env.MIDTERM_PORT || '30035');
+//base on home model SystemdServiceControl port..
+var port = normalizePort(process.env.GEX_SERVER_PORT || '30026');
 app.set('port', port);
 
 /**
