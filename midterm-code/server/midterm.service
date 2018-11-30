@@ -1,0 +1,20 @@
+[Unit]
+Description=Midterm Service
+
+[Service]
+ExecStart=/home/bcuser/npm/bin/npm run start-service
+WorkingDirectory=/home/bcuser/bin/midterm
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=midterm
+User=bcuser
+Group=bcuser
+Environment=NODE_ENV=production
+Environment=PORT=30031
+Environment=GEX_SERVER_PORT=30026
+Environment=SETUP_LINUXBOX=/home/bcuser/Git/JsObjects/Utilities/SetupLinuxBox
+Environment=SETUP_LINUXBOX=/home/bcuser/Git/JsObjects/JavaScript/SystemCalls/GetSshConfigIp
+
+[Install]
+WantedBy=multi-user.target
