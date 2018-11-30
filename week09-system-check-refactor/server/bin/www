@@ -14,7 +14,7 @@ var http = require('http');
 
 //var port = normalizePort(process.env.MIDTERM_PORT || '30035');
 //base on home model SystemdServiceControl port..
-var port = normalizePort(process.env.GEX_SERVER_PORT || '30026');
+var port = normalizePort(process.env.GEX_SERVER_PORT || '30035');
 app.set('port', port);
 
 /**
