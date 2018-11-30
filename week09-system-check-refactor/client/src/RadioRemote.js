@@ -8,7 +8,7 @@ class RadioRemote extends Component {
         super(props);
         this.dataEndPoints = [
         '/ssh-runner/run-script?script=', 
-        '/ssh-runner/run-system-tool?script=',  
+        '/ssh-runner/call-cpu-info?script=',  
         '/ssh-runner/get-host-name?script=',
         '/ssh-runner/uptime?script='
         ];
