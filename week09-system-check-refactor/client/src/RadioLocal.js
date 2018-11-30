@@ -10,6 +10,7 @@ class RadioLocal extends Component {
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',
         '/script-pusher/run-uptime-tool?script=',
+        '/script-pusher/get-hostname?script=',
         ];
         
         this.state = {
@@ -107,7 +108,7 @@ handleSubmit = (event) => {
                         type="radio" 
                         name="app-choice" 
                         data-endpoint="0"
-                        value="params" 
+                        value="hostname" 
                         id="elf-radio-hostname" 
                         onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-hostname">Host Name</label>

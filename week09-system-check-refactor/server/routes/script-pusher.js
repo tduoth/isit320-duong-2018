@@ -238,7 +238,7 @@ router.get('/run-uptime-tool', (request, response) =>{
 router.get('/get-host-name', (request, response) => {
     'use strict';
     console.log('GET HOST NAME CALLED');
-    runSytemToolParams('/bin', 'cat', ['/etc/hostname'])
+    runUptime('/bin', 'cat', ['/etc/hostname'])
     .then(result => {
         response.send(result);
     })
