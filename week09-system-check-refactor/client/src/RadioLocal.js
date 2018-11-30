@@ -108,7 +108,7 @@ handleSubmit = (event) => {
                         type="radio" 
                         name="app-choice" 
                         data-endpoint="2"
-                        value="uptime" 
+                        value="hostname" 
                         id="elf-radio-hostname" 
                         onChange={this.handleChange}/>
                         <label htmlFor="elf-radio-hostname">Host Name</label>
