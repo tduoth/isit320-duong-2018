@@ -225,7 +225,7 @@ router.get('/run-uptime-tool', (request, response) =>{
     'use strict';
        allData= '';
   console.log('QUERY IN RUN UPTIME', request.query);
-    runSystemToolParams(request.query.script)
+    runUptime(request.query.script)
     .then(result => {
         response.send(result);
     })
