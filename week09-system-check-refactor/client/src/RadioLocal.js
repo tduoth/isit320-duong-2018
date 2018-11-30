@@ -9,14 +9,13 @@ class RadioLocal extends Component {
         this.dataEndPoints = [
         '/script-pusher/run-script?script=', 
         '/script-pusher/run-system-tool?script=',
-        '/script-pusher/run-uptime-tool?script='
         ];
         
         this.state = {
             allData:'',
             uptime: '',
             selectedValue: '',
-            endPointIndex: 4
+            endPointIndex: 0
             
         };
     }
