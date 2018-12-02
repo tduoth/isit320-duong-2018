@@ -3,8 +3,14 @@ var router = express.Router();
 const Client = require('ssh2').Client;
 
 /* GET home page. */
-router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'server' });
+router.get('/', function(req, res) {
+    'use strict';
+    res.render('index', { title: 'server' });
+});
+
+router.get('/foo', (request, response) => {
+    'use strict';
+    response.send({ file: 'api.js',  result: 'success', status: 'bar' });
 });
 
 module.exports = router;
