@@ -13,7 +13,7 @@ ll
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-	"test": "mocha 'test/apiTest.js'"
+	
     },
     "eslintConfig": {
         "extends": "react-app"
