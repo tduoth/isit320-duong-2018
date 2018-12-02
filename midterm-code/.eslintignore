@@ -10,3 +10,5 @@
 **/manifest.json
 **/precache-manifest.*.js
 **/service-worker.js
+precache-manifest.*.js
+edit-package-json.js
