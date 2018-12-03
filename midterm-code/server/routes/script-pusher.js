@@ -9,6 +9,7 @@ let allData = '';
 let currentVersion = '';
 
 
+
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
     const validOptions = ['CpuInfo', 'VersionCheck', 'uptime'];
@@ -190,10 +191,12 @@ router.get('/run-uptime-tool', (request, response) =>{
     });
 });
 
-router.get('/foo', function(request, response) {
-    var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
-    console.log('Foo called:\n' + JSON.stringify(message, null, 4));
-    response.send(message);
+router.get('/foo', (request, response) => {
+    'use strict';
+    response.send({
+        file: 'script-pusher.js',
+        result: 'success',
+        status: 'script-pusher works'
+    });
 });
-
 module.exports = router;

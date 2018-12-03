@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "mocha 'test/*test.js'",
+	"start-service": "node ./bin/www"
+
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
