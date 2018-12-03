@@ -5,8 +5,7 @@ const Client = require('ssh2').Client;
 /* GET home page. */
 router.get('/', function(req, res) {
     'use strict';
-    res.render('index', { title: 'server' });
-    res.render('author', {author: 'Thanh Duong'})
+    res.render('index', { title: 'System Check Refactor', author: 'By Thanh Duong' });
     
 });
 
