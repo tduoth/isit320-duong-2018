@@ -3,3 +3,7 @@ public/index.html
 public/precache-manifest.*.js
 public/service-worker.js
 public/static
+public/service-worker.js
+mod-service
+setup-environment-service
+response.json
