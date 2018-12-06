@@ -13,10 +13,9 @@ class RadioLocal extends Component {
         ];
         this.state = {
             
-            result: '',
-            file: 'File name will be placed here.',
+            result: 'waiting',
             status: 'waiting for server',
-            endpoint:''
+            endpoint:'waiting'
         };
     }
 
@@ -105,7 +104,7 @@ class RadioLocal extends Component {
 
                 <br />
                 <p>Result: {this.state.result} </p>
-                <p>file: {this.state.file}</p>
+                <p>file: {this.state.status}</p>
                 <p>endpoint: {this.state.endpoint}</p>
                 <br />
 
