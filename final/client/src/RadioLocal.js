@@ -15,7 +15,8 @@ class RadioLocal extends Component {
             
             result: '',
             file: 'File name will be placed here.',
-            status: 'waiting for server'
+            status: 'waiting for server',
+            endpoint:''
         };
     }
 
@@ -103,7 +104,9 @@ class RadioLocal extends Component {
                 <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
 
                 <br />
-                <p>Result:{this.state.result} file:{this.state.file}</p>
+                <p>Result:{this.state.result} </p>
+                <p>file:{this.state.file}</p>
+                <p>endpoint:{this.state.endpoint}</p>
                 <br />
 
            
