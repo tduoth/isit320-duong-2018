@@ -58,7 +58,7 @@ runScript = (path, script) => {
 };
 
 
-handleChange = (event) => {
+handleClick = (event) => {
     const selectedValue = event.target.value;
     const endPointIndex = event.target.getAttribute('data-endpoint');
     console.log('HANDLE CHANGE', selectedValue);
@@ -101,7 +101,7 @@ handleSubmit = (event) => {
                         data-endpoint="0"
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
-                        onChange={this.handleChange}/>
+                        onClick={this.handleClick}/>
     
                         
                      <input  
