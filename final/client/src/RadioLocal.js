@@ -73,6 +73,22 @@ handleSubmit = (event) => {
         }
 };
 
+    callCpuInfo = () => {
+        const that = this;
+        fetch('ssh-runner/call-cpu-info')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+                console.log('parsed json', json.allData);
+                that.setState({allData: json.allData});
+            })
+            .catch(function (ex) {
+                console.log('parsing failed, URL bad, network down, or similar', ex);
+            })
+    };
+
+
 
  render() {
       
@@ -85,7 +101,7 @@ handleSubmit = (event) => {
                      <section>
                        <button onClick={this.runScript}>Create with AWS Standard Account</button>
                        <button onClick={this.runScript}>Create with AWS Educational Account</button>
-                       <button onClick={this.runScript}>Associate Elastic IP</button>
+                       <button onClick={this.callCpuInfo}>Associate Elastic IP</button>
                         <pre>{this.state.allData}</pre>
                     </section>
           
