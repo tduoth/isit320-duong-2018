@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "test": "mocha test/index-aws-tests.js",
-    "test1": "pusher test/script-pusher-test.js"
+    "start-service": "node bin/www"
     
   },
   "dependencies": {
