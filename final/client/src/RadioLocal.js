@@ -16,7 +16,8 @@ class RadioLocal extends Component {
             result: 'waiting',
             status: 'waiting for server',
             endpoint:'waiting',
-            Elasticip: ''
+            Elasticip: '',
+            key:''
         };
     }
 
@@ -106,9 +107,9 @@ class RadioLocal extends Component {
                 <br />
                 <p>Result:  {this.state.result} </p>
                 <p>file:  {this.state.status}</p>
-                <p>rount: {this.state.endpoint}</p>
+                <p>route: {this.state.endpoint}</p>
                 <p>{this.state.Elasticip}</p>
-                <p>{this.state.keygen}</p>
+                <p>{this.state.key}</p>
                 <br />
 
            

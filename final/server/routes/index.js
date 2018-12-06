@@ -84,7 +84,7 @@ router.get('/create-standard', function(request, response) {
 });
 
 router.get('/associate-elastic-ip', function(request, response) {
-    var message = { result: 'success', endpoint: 'associate-Elastic-Ip', status: 'active', Elasticip: '52.32.223.69' };
+    var message = { result: 'success', endpoint: 'associate-Elastic-Ip', status: 'active', Elasticip: '52.32.223.69', key: 'ec2key' };
     response.send(message);
 });
 
