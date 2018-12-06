@@ -7,9 +7,6 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 
-router.get('/', function(req, res, next) { 'use strict';
-  res.render('index', { title: 'AWS Provision', author: 'By Thanh Duong' });
-});
 
 
 // If you want your app to work offline and load faster, you can change
