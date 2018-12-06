@@ -73,24 +73,29 @@ class RadioLocal extends Component {
                 );
             });
     };
-    associateElasticIp = () => {
-        const that = this;
-        fetch('/associate-elastic-ip')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
- };
+ associateElasticIp = () => {
+    //const that = this;
+    fetch(
+        '/associate-elastic-ip?instanceId=' +
+            this.state.instanceData.InstanceId +
+            '&allocationId=' +
+            this.state.allocationId +
+            '&region=' +
+            this.state.region
+    )
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            console.log('parsed json', json);  
+        })
+        .catch(function(ex) {
+            console.log(
+                'parsing failed, URL bad, network down, or similar',
+                ex
+            );
+        });
+};
    
     render() {
         return (
@@ -101,7 +106,7 @@ class RadioLocal extends Component {
                 <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
 
                 <br />
-                <p>state: {this.state.status}, file: {this.state.file}</p>
+                <p>state: {this.state.result}, file: {this.state.file}</p>
                 <br />
 
            
