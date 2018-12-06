@@ -187,33 +187,20 @@ class RadioLocal extends Component {
             <div className="App">
                 <ElfHeader />
 
-                <button onClick={this.createWithAwsStandardAccount}>Create with AWS Standard Account
-                </button>
-                <button onClick={this.createEducate}>
-                    Create with AWS Educate Account
-                </button>
-                <button onClick={this.associateElasticIp}>
-                    Associate Elastic Ip
-                </button>
+                <button onClick={this.createWithAwsStandardAccount}>Create with AWS Standard Account</button>
+                <button onClick={this.createEducate}>Create with AWS Educate Account</button>
+                <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
 
                 <br />
-                <p>
-                    state: {this.state.status}, file: {this.state.file}
-                </p>
+                <p>state: {this.state.status}, file: {this.state.file}</p>
                 <br />
 
-                <button onClick={this.copyGetStarted}>
-                    Copy the GetStarted Script
-                </button>
+                <button onClick={this.copyGetStarted}>Copy the GetStarted Script</button>
 
                 <br />
 
-                <button onClick={this.runGetStarted}>
-                    Run the GetStarted Script on EC2
-                </button>
-                <button onClick={this.runGetStarted}>
-                    Run the RunUbuntuSetup Script on EC2
-                </button>
+                <button onClick={this.runGetStarted}>Run the GetStarted Script on EC2</button>
+                <button onClick={this.runGetStarted}>Run the RunUbuntuSetup Script on EC2</button>
 
                 <br />
 
@@ -231,10 +218,7 @@ class RadioLocal extends Component {
                 <p>export ELF_SYSTEM_CHECK_PORT=30034</p>
                 <p>export MIDTERM_PORT=30035</p>
 
-                <section>
-                    <RadioLocal />
-                    <RadioRemote />
-                </section>
+           
             </div>
         );
     }
