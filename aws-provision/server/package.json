@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "mocha './test/index-test.js'"
+    "test": "mocha test/index-test.js"
     
   },
   "dependencies": {
