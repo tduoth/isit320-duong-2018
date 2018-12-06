@@ -185,7 +185,6 @@ class RadioLocal extends Component {
     render() {
         return (
             <div className="App">
-                <ElfHeader />
 
                 <button onClick={this.createWithAwsStandardAccount}>Create with AWS Standard Account</button>
                 <button onClick={this.createEducate}>Create with AWS Educate Account</button>
