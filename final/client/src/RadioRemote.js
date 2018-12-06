@@ -75,7 +75,7 @@ class RadioRemote extends Component {
     };
     runGetStarted = () => {
         const that = this;
-        fetch('/script-pusher/run-get-started')
+        fetch('/ssh-runner/run-get-started')
             .then(function(response) {
                 return response.json();
             })
