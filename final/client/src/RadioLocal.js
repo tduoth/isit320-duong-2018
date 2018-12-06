@@ -12,6 +12,7 @@ class RadioLocal extends Component {
             '/remove-known-host?ec2Ip=xxx.xxx.xxx.xxx'
         ];
         this.state = {
+            result: '',
             file: 'File name will be placed here.',
             status: 'waiting for server'
         };
