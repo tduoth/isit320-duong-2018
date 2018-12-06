@@ -1,5 +1,4 @@
 #!/bin/bash
-# /thanh duong
 
 
 LOCAL_IP=$(./get-ip.js)
