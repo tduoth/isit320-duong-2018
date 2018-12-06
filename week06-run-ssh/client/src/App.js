@@ -9,6 +9,9 @@ class App extends Component {
             allData: 'unknown'
         };
     }
+    
+    
+    
     callCpuInfo = () => {
         const that = this;
         fetch('ssh-runner/call-cpu-info')
