@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ElfHeader from './ElfHeader';
-import buttonLocal from './buttonLocal';
-import buttonRemote from './buttonRemote';
+import RadioLocal from './RadioLocal';
+import RadioRemote from './RadioRemote';
 
 
 
@@ -16,8 +16,8 @@ class App extends Component {
             <ElfHeader/>                                     
             <main>                                            
                 <section>                                     
-                    <buttonLocal/>    
-                    <buttonRemote/>
+                    <RadioLocal/>    
+                    <RadioRemote/>
                                          
                 </section>         
             </main>                                           
