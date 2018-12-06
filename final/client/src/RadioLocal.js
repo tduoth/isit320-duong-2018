@@ -12,6 +12,7 @@ class RadioLocal extends Component {
             '/remove-known-host?ec2Ip=xxx.xxx.xxx.xxx'
         ];
         this.state = {
+            
             result: '',
             file: 'File name will be placed here.',
             status: 'waiting for server'
@@ -102,7 +103,7 @@ class RadioLocal extends Component {
                 <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
 
                 <br />
-                <p>state: {this.state.result}, file: {this.state.file}</p>
+                <p>Result:{this.state.result} file:{this.state.file}</p>
                 <br />
 
            
