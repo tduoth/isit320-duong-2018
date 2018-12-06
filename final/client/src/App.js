@@ -18,6 +18,12 @@ class App extends Component {
                 <section>                                     
                     <RadioLocal/>    
                     <RadioRemote/>
+                    
+                <p>export PORT=30025</p>
+                <p>export SERVER_PORT=30026</p>
+                <p>export ELF_SCREF_PORT=30030</p>
+                <p>export ELF_SYSTEM_CHECK_PORT=30034</p>
+                <p>export MIDTERM_PORT=30035</p>
                                          
                 </section>         
             </main>                                           

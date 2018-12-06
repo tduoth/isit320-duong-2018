@@ -194,24 +194,9 @@ class RadioLocal extends Component {
                 <p>state: {this.state.status}, file: {this.state.file}</p>
                 <br />
 
-                <button onClick={this.copyGetStarted}>Copy the GetStarted Script</button>
+   
 
-                <br />
-
-                <button onClick={this.runGetStarted}>Run the GetStarted Script on EC2</button>
-                <button onClick={this.runGetStarted}>Run the RunUbuntuSetup Script on EC2</button>
-
-                <br />
-
-                <button onClick={this.removeKnownHost}>Remove from KnownHost</button>
-                <button onClick={this.instanceStatus}>Get Instance Status</button>
-                <button onClick={this.rebootInstance}>Reboot Instance</button>
-
-                <p>export PORT=30025</p>
-                <p>export SERVER_PORT=30026</p>
-                <p>export ELF_SCREF_PORT=30030</p>
-                <p>export ELF_SYSTEM_CHECK_PORT=30034</p>
-                <p>export MIDTERM_PORT=30035</p>
+    
 
            
             </div>
