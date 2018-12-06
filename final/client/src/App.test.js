@@ -21,7 +21,7 @@ describe('basic suite',  () => {
   });
   it('renders h1 header',  () =>{
     const wrapper= shallow(<App/>);
-    const unknown= <h1>Sytem Check</h1>;
+    const unknown= <h1>AWS Provision</h1>;
     elfDebugEnzym.getLast(wrapper, 'h1', true);
     console.log(wrapper.find('h1').debug());
     expect(wrapper.contains(unknown)).toEqual(true);
