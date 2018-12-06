@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import ElfHeader from './ElfHeader';
-import RadioLocal from './RadioLocal';
-import RadioRemote from './RadioRemote';
+import RadioLocal from './buttonLocal';
+import RadioRemote from './buttonRemote';
 
 
 
