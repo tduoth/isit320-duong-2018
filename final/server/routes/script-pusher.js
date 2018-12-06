@@ -102,7 +102,7 @@ const copyGetStarted = () => {
     });
 };
 
-router.get('/copy-get-started', function(request, response) {
+router.get('/run-get-started', function(request, response) {
     'use strict';
     copyGetStarted()
         .then(result => {
@@ -134,5 +134,6 @@ router.get('/remove-known-host', function(request, response) {
             response.send(err);
         });
 });
+
 
 module.exports = router;
