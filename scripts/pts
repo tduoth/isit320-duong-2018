@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+git add . && git commit -m "time to push" && git push
+
