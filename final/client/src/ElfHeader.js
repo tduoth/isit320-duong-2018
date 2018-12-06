@@ -9,6 +9,7 @@ class ElfHeader extends Component {
             <div className="App">
                 <header>
                     <h1>AWS Provision</h1>
+                    <h3>by Thanh Duong</h3>
                 </header>
             </div>
         );
