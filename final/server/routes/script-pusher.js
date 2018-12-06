@@ -1,23 +1,21 @@
+
 /* eslint-disable semi */
 var express = require('express');
 var router = express.Router();
+
 const spawn = require('child_process').spawn;
-
-
-let allData = '';
-let currentVersion = '';
-
 
 const check = (request, response, next) => {
     console.log('REQUEST CHECK CALLED', request.query);
-    const validOptions = ['CpuInfo', 'VersionCheck', 'hostname', 'uptime'];
+    const validOptions = ['GetStarted', 'VersionCheck', 'uptime'];
     if (request.query.script) {
         console.log('INSIDE REQUEST SCRIPT');
         if (!validOptions.includes(request.query.script)) {
             console.log('INSIDE REQUEST INVALID OPTION');
-            response.send({result: 'error', 
-            error: 'Invalid Option: ' + request.query.script, 
-            script: request.query.script
+            response.send({
+                result: 'error',
+                error: 'Invalid Option: ' + request.query.script,
+                script: request.query.script
             });
             return;
         }
@@ -27,133 +25,125 @@ const check = (request, response, next) => {
 
 router.use(check);
 
-const scriptRunner = (script) => {
-    console.log("This is from scriptRunner");
-    return new Promise(function(resolve, reject) {
-        console.log('Run CPU info', process.env.SETUP_LINUXBOX);
-
-        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/' + script);
-
-        pushScript.stdout.on('data', data => {
-            console.log(`child stdout:\n${data}`);
-            allData += data;
-            //console.log('PUSH', data);
-        });
-
-        pushScript.stderr.on('data', data => {
-            console.log(`child stderr:\n${data}`);
-            allData += data;
-            //console.error('PUSH', data);
-        });
-
-        pushScript.on('close', code => {
-            resolve({
-                result: 'success',
-                allData: allData,
-                code: code
-            });
-        });
-
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
-    });
-};
-
-
-
-const runSystemTool = (script) => {
-    console.log("This is from runSystemTool");
-    return new Promise(function(resolve, reject) {
-
-        const pushScript = spawn('/usr/bin/' + script);
-
-        pushScript.stdout.on('data', data => {
-            console.log(`child stdout:\n${data}`);
-            allData += data;
-            //console.log('PUSH', data);
-        });
-
-        pushScript.stderr.on('data', data => {
-            console.log(`child stderr:\n${data}`);
-            allData += data;
-            //console.error('PUSH', data);
-        });
-
-        pushScript.on('close', code => {
-            resolve({
-                result: 'success',
-                allData: allData,
-                code: code
-            });
-        });
-
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
-    });
-};
-
-const runSystemToolParams = (path, script, params) => {
+const runSystemTool = sysTool => {
     return new Promise(function(resolve, reject) {
         let allData = '';
-        
-        console.log('System TOOL ENVIRONMENT', process.env.bash)
+        console.log('Run System Tool ', sysTool);
 
-        const pushScript = spawn(path+ script, params);
-
-        pushScript.stdout.on('data', data => {
-            //console.log(`child stdout:\n${data}`);
-            allData += data;
-            //console.log('PUSH', data);
-        });
-
-        pushScript.stderr.on('data', data => {
-           // console.log(`child stderr:\n${data}`);
-            allData += data;
-            //console.error('PUSH', data);
-        });
-
-        pushScript.on('close', code => {
-            resolve({
-                result: 'success',
-                allData: allData,
-                code: code
-            });
-        });
-
-        pushScript.on('error', code => {
-            reject({
-                result: 'error',
-                code: code
-            });
-        });
-    });
-};
-
-
-
-const runUptime = (script) => {
-    console.log("This is from runUptime");
-    return new Promise(function(resolve, reject) {
-
-        const pushScript = spawn(script);
+        const pushScript = spawn(sysTool);
 
         pushScript.stdout.on('data', data => {
             console.log(`child stdout:\n${data}`);
-            allData += data;
+            allData += ' ' + data;
             //console.log('PUSH', data);
         });
 
         pushScript.stderr.on('data', data => {
             console.log(`child stderr:\n${data}`);
-            allData += data;
+            allData += ' ' + data;
+            //console.error('PUSH', data);
+        });
+
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+/*
+const scriptRunner = script => {
+    return new Promise(function(resolve, reject) {
+        let allData = '';
+        console.log('Run Script', process.env.SETUP_LINUXBOX + '/' + script);
+        const pushScript = spawn(process.env.SETUP_LINUXBOX + '/' + script);
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += ' ' + data;
+            //console.log('PUSH', data);
+        });
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += ' ' + data;
+            //console.error('PUSH', data);
+        });
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+const copyFile = () => {
+    return new Promise(function(resolve, reject) {
+        console.log('Copy to EC2', process.env.SETUP_LINUXBOX);
+        let allData = '';
+        const pushScript = spawn('scp', [
+            process.env.SETUP_LINUXBOX + '/CpuInfo',
+            'ec2-bc:/home/ubuntu'
+        ]);
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.log('PUSH', data);
+        });
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.error('PUSH', data);
+        });
+        pushScript.on('close', code => {
+            resolve({
+                result: 'success',
+                allData: allData,
+                code: code
+            });
+        });
+        pushScript.on('error', code => {
+            reject({
+                result: 'error',
+                code: code
+            });
+        });
+    });
+};
+*/
+
+const copyGetStarted = () => {
+    return new Promise(function(resolve, reject) {
+        console.log('Copy GetStarted to EC2', process.env.SETUP_LINUXBOX);
+        let allData = '';
+        const pushScript = spawn('scp', [
+            process.env.SETUP_LINUXBOX + '/GetStarted',
+            'ec2-bc:/home/ubuntu'
+        ]);
+
+        pushScript.stdout.on('data', data => {
+            console.log(`child stdout:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
+            //console.log('PUSH', data);
+        });
+
+        pushScript.stderr.on('data', data => {
+            console.log(`child stderr:\n${data}`);
+            allData += 'PUSH-SCRIPT: ' + data;
             //console.error('PUSH', data);
         });
 
@@ -174,84 +164,108 @@ const runUptime = (script) => {
     });
 };
 
-
-
-
-
-router.get('/run-script', (request, response) => {
+router.get('/copy-get-started', function(request, response) {
     'use strict';
-    allData = "",
-   // console.log('QUERY', request.query);
+    copyGetStarted()
+        .then(result => {
+            console.log(JSON.stringify(result, null, 4));
+            //response.send(result); /////////////////////////////////
+            response.send({
+                result: 'success',
+                status: 'endpoint-called: script-pusher/copy-get-started'
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            response.send(err);
+        });
+});
+/*
+router.get('/remove-known-host', function(request, response) {
+    //runSystemTool
+    'use strict';
+    response.send({
+        result: 'success',
+        status: 'endpoint-called: script-pusher/remove-known-host'
+    });
+});
+*/
+
+router.get('/remove-known-host', function(request, response) {
+    'use strict';
+    //runSystemTool(request.query.script) //ssh-keygen -R hostname/18.212.127.29
+    runSystemTool('ssh-keygen -R 18.212.127.29')
+        .then(result => {
+            //console.log(JSON.stringify(result, null, 4));
+            response.send(result);
+            /*
+            response.send({
+                result: 'success',
+                status: 'endpoint-called: script-pusher/remove-known-host'
+            });
+            */
+        })
+        .catch(err => {
+            console.log(err);
+            response.send(err);
+        });
+});
+
+/*
+router.get('/run-script', function(request, response) {
+    'use strict';
+    console.log('QUERY', request.query);
+    //responce.send({result: response.query});
     scriptRunner(request.query.script)
-    .then(result => {
-        response.send(result);
-    })
-    .catch(err => {
-        console.log(err);
-        response.send(err);
-    });
+        .then(result => {
+            //console.log(JSON.stringify(result, null, 4));
+            response.send(result);
+        })
+        .catch(err => {
+            console.log(err);
+            response.send(err);
+        });
 });
-
-router.get('/run-system-tool', (request, response) =>{
+*/
+/*
+router.get('/foo', (request, response) => {
     'use strict';
-       allData= '';
-  console.log('QUERY IN RUN SYTEM TOOL', request.query);
-    runSytemTool(request.query.script)
-    .then(result => {
-        response.send(result);
-    })
-    .catch(err => {
-        console.log(err);
-        response.send(err);
+    response.send({
+        file: 'script-pusher.js',
+        result: 'foo = success',
+        status: 'script-pusher works'
     });
 });
+*/
 
-router.get('/run-params-tool', (request, response) =>{
+/*
+router.get('/run-get-started', function(request, response) {
     'use strict';
-       allData= '';
-  //console.log('QUERY IN RUN UPTIME', request.query);
-    runSytemToolParams(request.query.script)
-    .then(result => {
-        response.send(result);
-    })
-    .catch(err => {
-        console.log(err);
-        response.send(err);
+    response.send({
+        result: 'success',
+        status: 'endpoint-called: script-pusher/run-get-started'
     });
 });
+*/
 
-
-router.get('/run-uptime-tool', (request, response) =>{
+// below are old end points
+/*
+router.get('/copy-file', function(request, response) {
     'use strict';
-       allData= '';
-  console.log('QUERY IN RUN UPTIME', request.query);
-    runUptime(request.query.script)
-    .then(result => {
-        response.send(result);
-    })
-    .catch(err => {
-        console.log(err);
-        response.send(err);
-    });
+    copyFile()
+        .then(result => {
+            console.log(JSON.stringify(result, null, 4));
+            response.send(result);
+        })
+        .catch(err => {
+            console.log(err);
+            response.send(err);
+        });
 });
-
-router.get('/get-host-name', (request, response) => {
+router.get('/copy-script', function(request, response) {
     'use strict';
-    console.log('GET HOST NAME CALLED');
-    runUptime('/bin', 'cat', ['/etc/hostname'])
-    .then(result => {
-        response.send(result);
-    })
-    .catch(err => {
-        console.log(err);
-        response.send(err);
-    });
+    response.send({ result: 'success' });
 });
-
-router.get('/foo', function(request, response) {
-    var message = { 'State': 'success', 'status': 'Bar', 'file': 'api.js' };
-    console.log('Foo called:\n' + JSON.stringify(message, null, 4));
-    response.send(message);
-});
+*/
 
 module.exports = router;
