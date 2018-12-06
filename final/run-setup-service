@@ -1,6 +1,0 @@
-#! /bin/bash
-
-source setup-environment-service
-./mod-service
-./setup-service
-./check-service
