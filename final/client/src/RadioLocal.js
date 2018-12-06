@@ -92,7 +92,6 @@ handleSubmit = (event) => {
                                         
             <main>          
             <section>
-            {radioLocal}
             </section>
                      <section>
                        <button onClick={this.callCpuInfo}>Call CPU Info</button>
