@@ -203,12 +203,8 @@ class RadioLocal extends Component {
 
                 <br />
 
-                <button onClick={this.removeKnownHost}>
-                    Remove from KnownHost
-                </button>
-                <button onClick={this.instanceStatus}>
-                    Get Instance Status
-                </button>
+                <button onClick={this.removeKnownHost}>Remove from KnownHost</button>
+                <button onClick={this.instanceStatus}>Get Instance Status</button>
                 <button onClick={this.rebootInstance}>Reboot Instance</button>
 
                 <p>export PORT=30025</p>
