@@ -16,8 +16,8 @@ class App extends Component {
             <ElfHeader/>                                     
             <main>                                            
                 <section>                                     
-                    <RadioLocal/>    
-                    <RadioRemote/>
+                    <buttonLocal/>    
+                    <buttonRemote/>
                                          
                 </section>         
             </main>                                           

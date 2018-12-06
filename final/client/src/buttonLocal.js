@@ -97,12 +97,12 @@ handleSubmit = (event) => {
                     
                         <input  
                         type="button" 
-                        name="app-choice" 
+                        name="onSubmit" 
                         data-endpoint="0"
                         value="CpuInfo" 
                         id="elf-radio-cpu" 
                         onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-cpu">Cpu Info</label>
+    
                         
                      <input  
                         type="radio" 
