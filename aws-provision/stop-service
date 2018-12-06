@@ -1,4 +1,5 @@
+
 #! /bin/bash
 
-sudo systemctl stop SERVICE_FILE
-sudo systemctl disable SERVICE_FILE
+sudo systemctl stop midterm.service
+sudo systemctl disable midterm.service
