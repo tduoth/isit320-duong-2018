@@ -4,21 +4,10 @@ import './App.css';
 
 class RadioLocal extends Component {
     
-    constructor(props) {
+   constructor(props) {
         super(props);
-        this.dataEndPoints = [
-        '/script-pusher/run-script?script=', 
-        '/script-pusher/run-system-tool?script=',
-        '/script-pusher/run-uptime-tool?script=',
-        '/script-pusher/get-hostname?script=',
-        ];
-        
         this.state = {
-            allData:'',
-            uptime: '',
-            selectedValue: '',
-            endPointIndex: 0
-            
+            allData: 'unknown'
         };
     }
 
@@ -94,7 +83,7 @@ handleSubmit = (event) => {
             <section>
             </section>
                      <section>
-                       <button onClick={this.callCpuInfo}>Call CPU Info</button>
+                       <button onClick={this.runScript}>Call CPU Info</button>
                         <pre>{this.state.allData}</pre>
                     </section>
           
