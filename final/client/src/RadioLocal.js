@@ -3,111 +3,241 @@ import './App.css';
 
 
 class RadioLocal extends Component {
-    
-   constructor(props) {
-        super(props);
+    constructor() {
+        super();
+        this.dataEndPoints = [
+            // add new end points for each endpoint that needs a prameter
+            '/associate-elastic-ip?instanceId=xxx&allocationId=yyy&region=zzz',
+            '/get-instance-status?instanceId=xxx',
+            '/remove-known-host?ec2Ip=xxx.xxx.xxx.xxx'
+        ];
         this.state = {
-            allData: 'unknown'
+            file: 'File name will be placed here.',
+            status: 'waiting for server'
         };
     }
 
-
-        
-runScript = (path, script) => {
-    const that = this;
-    if (!script) {
-        return;
-    }
-    fetch(path + script)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (json) {
-            console.log('allData', json.allData);
-            console.log('result', json.result);
-            console.log('code', json.code);
-            console.log('error', json.error);
-            let info = '';
-            if (json.result === 'error') {
-                info = json.error;
-            } else if (script === 'CpuInfo') {
-                var regex1 = RegExp('model name.*', 'g');
-                let array1 = regex1.exec(json.allData);
-                while (array1 !== null) {
-                    info += array1[0] + '\n';
-                    console.log(`Found ${array1[0]}.`);
-                    array1 = regex1.exec(json.allData);
-                }
-            } else { info = json.allData;}
-            that.setState({allData: info});
-        })
-        .catch(function (ex) {
-            console.log('parsing failed, URL bad, network down, or similar', ex);
-        });
-};
-
-
-handleClick = (event) => {
-    const selectedValue = event.target.value;
-    const endPointIndex = event.target.getAttribute('data-endpoint');
-    console.log('HANDLE CHANGE', selectedValue);
-    this.setState({...this.state, selectedValue: selectedValue, endPointIndex: endPointIndex});
-
-};
-
-handleSubmit = (event) => {
-    this.setState({allData: ''});
-    console.log('A name was submitted: ', this.state);
-            //uptime console
-     if(this.state.selectedValue === 'uptime'){
-            console.log('Going to console');
-            event.preventDefault();
-        } 
-           if(this.state.selectedValue === 'uptime1'){
-          console.log('Going to ssh');
-          this.Uptime();
-           event.preventDefault();
-       } 
-        else{ this.runScript(this.dataEndPoints[this.state.endPointIndex], this.state.selectedValue);
-        event.preventDefault();
-        }
-};
-
-    callCpuInfo = () => {
+    queryServer = () => {
         const that = this;
-        fetch('ssh-runner/call-cpu-info')
-            .then(function (response) {
+        fetch('/foo')
+            .then(function(response) {
                 return response.json();
             })
-            .then(function (json) {
-                console.log('parsed json', json.allData);
-                that.setState({allData: json.allData});
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
             })
-            .catch(function (ex) {
-                console.log('parsing failed, URL bad, network down, or similar', ex);
-            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
     };
 
+    createEducate = () => {
+        const that = this;
+        fetch('/create-educate')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
+    createWithAwsStandardAccount = () => {
+        const that = this;
+        fetch('/create-standard')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+    associateElasticIp = () => {
+        const that = this;
+        fetch('/associate-elastic-ip')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+    copyGetStarted = () => {
+        const that = this;
+        fetch('/script-pusher/copy-get-started')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+    runGetStarted = () => {
+        const that = this;
+        fetch('/script-pusher/run-get-started')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+    removeKnownHost = () => {
+        const that = this;
+        fetch('/script-pusher/remove-known-host?ec2ip=')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+    rebootInstance = () => {
+        const that = this;
+        fetch('/script-pusher/remove-known-host')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
+    instanceStatus = () => {
+        const that = this;
+        fetch('/script-pusher/remove-known-host')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(json) {
+                console.log('parsed json', json);
+                //that.setState(foo => json);
+                that.setState(json);
+            })
+            .catch(function(ex) {
+                console.log(
+                    'parsing failed, URL bad, network down, or similar',
+                    ex
+                );
+            });
+    };
 
- render() {
-      
- return(
-     <div className="App">                                 
-                                        
-            <main>          
-            <section>
-            </section>
-                     <section>
-                       <button onClick={this.runScript}>Create with AWS Standard Account</button>
-                       <button onClick={this.runScript}>Create with AWS Educational Account</button>
-                       <button onClick={this.callCpuInfo}>Associate Elastic IP</button>
-                        <pre>{this.state.allData}</pre>
-                    </section>
-          
-                </main>                                       
-        </div>   
-     )
- };
+    render() {
+        return (
+            <div className="App">
+                <ElfHeader />
+
+                <button onClick={this.createWithAwsStandardAccount}>Create with AWS Standard Account
+                </button>
+                <button onClick={this.createEducate}>
+                    Create with AWS Educate Account
+                </button>
+                <button onClick={this.associateElasticIp}>
+                    Associate Elastic Ip
+                </button>
+
+                <br />
+                <p>
+                    state: {this.state.status}, file: {this.state.file}
+                </p>
+                <br />
+
+                <button onClick={this.copyGetStarted}>
+                    Copy the GetStarted Script
+                </button>
+
+                <br />
+
+                <button onClick={this.runGetStarted}>
+                    Run the GetStarted Script on EC2
+                </button>
+                <button onClick={this.runGetStarted}>
+                    Run the RunUbuntuSetup Script on EC2
+                </button>
+
+                <br />
+
+                <button onClick={this.removeKnownHost}>
+                    Remove from KnownHost
+                </button>
+                <button onClick={this.instanceStatus}>
+                    Get Instance Status
+                </button>
+                <button onClick={this.rebootInstance}>Reboot Instance</button>
+
+                <p>export PORT=30025</p>
+                <p>export SERVER_PORT=30026</p>
+                <p>export ELF_SCREF_PORT=30030</p>
+                <p>export ELF_SYSTEM_CHECK_PORT=30034</p>
+                <p>export MIDTERM_PORT=30035</p>
+
+                <section>
+                    <RadioLocal />
+                    <RadioRemote />
+                </section>
+            </div>
+        );
+    }
 }
+
 export default RadioLocal;
