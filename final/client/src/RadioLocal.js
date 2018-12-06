@@ -86,61 +86,7 @@ handleSubmit = (event) => {
 
 
  render() {
-      const radioLocal = (
-            <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                <fieldset>
-                
-                    <div className="elf-form-field" >
-                    <legend>Local Services</legend>
-                    
-                    
-                        <input  
-                        type="button" 
-                        name="onSubmit" 
-                        data-endpoint="0"
-                        value="CpuInfo" 
-                        id="elf-radio-cpu" 
-                        onClick={this.handleClick}/>
-    
-                        
-                     <input  
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="hostname" 
-                        id="elf-radio-hostname" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-hostname">Host Name</label>
-
-                        <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="0"
-                        value="VersionCheck" 
-                        id="elf-radio-version" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-version">Version Info</label>
-                        
-                        <input 
-                        type="radio" 
-                        name="app-choice" 
-                        data-endpoint="2"
-                        value="uptime" 
-                        id="elf-radio-uptime" 
-                        onChange={this.handleChange}/>
-                        <label htmlFor="elf-radio-uptime">uptime</label>
-                        
-                    </div>
-                    
-                    
-                   <div className="form-group">
-                       <button type="submit" className="btn btn-primary">Run System Script </button>
-                   </div>
-                   </fieldset>
-                 </form>
-            </div>
-            );
+      
  return(
      <div className="App">                                 
                                         
@@ -149,6 +95,7 @@ handleSubmit = (event) => {
             {radioLocal}
             </section>
                      <section>
+                       <button onClick={this.callCpuInfo}>Call CPU Info</button>
                         <pre>{this.state.allData}</pre>
                     </section>
           
