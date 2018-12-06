@@ -55,42 +55,6 @@ class RadioRemote extends Component {
             });
     };
 
-    createWithAwsStandardAccount = () => {
-        const that = this;
-        fetch('/create-standard')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-    associateElasticIp = () => {
-        const that = this;
-        fetch('/associate-elastic-ip')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
     copyGetStarted = () => {
         const that = this;
         fetch('/script-pusher/copy-get-started')

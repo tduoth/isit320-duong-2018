@@ -90,98 +90,8 @@ class RadioLocal extends Component {
                     ex
                 );
             });
-    };
-    copyGetStarted = () => {
-        const that = this;
-        fetch('/script-pusher/copy-get-started')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-    runGetStarted = () => {
-        const that = this;
-        fetch('/script-pusher/run-get-started')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-    removeKnownHost = () => {
-        const that = this;
-        fetch('/script-pusher/remove-known-host?ec2ip=')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-    rebootInstance = () => {
-        const that = this;
-        fetch('/script-pusher/remove-known-host')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-    instanceStatus = () => {
-        const that = this;
-        fetch('/script-pusher/remove-known-host')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(json) {
-                console.log('parsed json', json);
-                //that.setState(foo => json);
-                that.setState(json);
-            })
-            .catch(function(ex) {
-                console.log(
-                    'parsing failed, URL bad, network down, or similar',
-                    ex
-                );
-            });
-    };
-
+ };
+   
     render() {
         return (
             <div className="App">
@@ -193,10 +103,6 @@ class RadioLocal extends Component {
                 <br />
                 <p>state: {this.state.status}, file: {this.state.file}</p>
                 <br />
-
-   
-
-    
 
            
             </div>

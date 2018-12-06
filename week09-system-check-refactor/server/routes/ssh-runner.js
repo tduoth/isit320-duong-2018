@@ -6,6 +6,9 @@ const elfUtils = require('elven-code').elfUtils;
 const hostAddress = '52.32.223.69';
 
 let allData = '';
+let currentVersion = '';
+
+
 
 const runUptime = (hostAddress, response) => {
     var conn = new Client();
