@@ -83,7 +83,9 @@ handleSubmit = (event) => {
             <section>
             </section>
                      <section>
-                       <button onClick={this.runScript}>Call CPU Info</button>
+                       <button onClick={this.runScript}>Create with AWS Standard Account</button>
+                       <button onClick={this.runScript}>Create with AWS Educational Account</button>
+                       <button onClick={this.runScript}>Associate Elastic IP</button>
                         <pre>{this.state.allData}</pre>
                     </section>
           
