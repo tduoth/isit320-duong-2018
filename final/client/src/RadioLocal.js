@@ -104,9 +104,9 @@ class RadioLocal extends Component {
                 <button onClick={this.associateElasticIp}>Associate Elastic Ip</button>
 
                 <br />
-                <p>Result:{this.state.result} </p>
-                <p>file:{this.state.file}</p>
-                <p>endpoint:{this.state.endpoint}</p>
+                <p>Result: {this.state.result} </p>
+                <p>file: {this.state.file}</p>
+                <p>endpoint: {this.state.endpoint}</p>
                 <br />
 
            
