@@ -13,7 +13,8 @@ class RadioRemote extends Component {
         ];
         this.state = {
             file: 'File name will be placed here.',
-            status: 'waiting for server'
+            status: 'waiting for server',
+            route: ''
         };
     }
 
@@ -129,7 +130,7 @@ class RadioRemote extends Component {
     };
     instanceStatus = () => {
         const that = this;
-        fetch('/script-pusher/remove-known-host')
+        fetch('/ssh-runner/remove-known-host')
             .then(function(response) {
                 return response.json();
             })
@@ -166,7 +167,9 @@ class RadioRemote extends Component {
                 <button onClick={this.rebootInstance}>Reboot Instance</button>
                 
                 <br />
-                <p>state: {this.state.status}, file: {this.state.file}</p>
+                <p>state: {this.state.status}</p>
+                <p>file: {this.state.file}</p>
+                <p>{this.state.route}</p>
                 <br />
 
     
