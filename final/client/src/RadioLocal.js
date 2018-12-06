@@ -96,7 +96,7 @@ handleSubmit = (event) => {
                     
                     
                         <input  
-                        type="radio" 
+                        type="button" 
                         name="app-choice" 
                         data-endpoint="0"
                         value="CpuInfo" 
